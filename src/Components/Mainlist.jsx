@@ -1,9 +1,20 @@
 import { useState, useEffect, useCallback } from "react";
 import { fetchData, apiUrl } from "../Functions/FetchApi";
 import styles from './styles.module.css';
+import { DeleteItem } from "./DeleteItem";
+import hotel from './hotel.png';
 
 export const Mainlist = () => {
     const [hotels, setHotels] = useState([]);
+    const [isOpen, setIsOpen] = useState(false);
+    const [deletedItemId, setDeletedItemId] = useState()
+    console.log('l')
+    const onOpen = () => {
+        setIsOpen(true)
+    }
+    const onClose = () => {
+        setIsOpen(false)
+    }
 
     useEffect(() => {
         const f = async () => {
@@ -46,21 +57,30 @@ export const Mainlist = () => {
     }, [deleteHotel]);
 
     return (
-        <div>
-            <div>Hotels</div>
-            <ul className={styles.main}>
-                {hotels?.map((item) => 
-                    <li key={item.properties.place_id} className={styles.item}>
-                        {item.properties.name}
-                        {item.properties.address_line2}
-                        {item.properties.city}
-                        {item.properties.contact?.phone}
-                        {item.properties.website && <img src={`https://image.thum.io/get/width/300/${item.properties.website}`} alt="Screenshot" />}
-                        <button onClick={() => onEdit(item)}>Edit</button>
-                        <button onClick={() => onRemove(item.properties.place_id)}>Remove</button>
-                    </li>
-                )}
-            </ul> 
-        </div>
+        <>
+            <div>
+                <div>Hotels</div>
+                <ul className={styles.main}>
+                    {hotels?.map((item) => 
+                        <li key={item.properties.place_id} className={styles.item}>
+                            {item.properties.name}
+                            {item.properties.address_line2}
+                            {item.properties.city}
+                            {item.properties.contact?.phone}
+                            {/* {item.properties.website && <img src={`https://image.thum.io/get/width/300/${item.properties.website}`} alt="Screenshot" />} */}
+                            <img src={hotel} alt='hotel'></img>
+                            <button onClick={() => onEdit(item)}>Edit</button>
+                            <button onClick={
+                                    () => {
+                                        onOpen()
+                                        setDeletedItemId(item.properties.place_id)
+                                    }
+                            }>Delete</button>
+                        </li>
+                    )}
+                </ul> 
+            </div>
+            {isOpen && <DeleteItem onLeave={onClose} onDelete={() => onRemove(deletedItemId)}/>}
+        </>
     )
 }
