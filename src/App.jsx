@@ -1,8 +1,11 @@
 import React from 'react'
+import {Mainlist} from './Components/Mainlist'
 
 const App = () => {
   return (
-    <div>App</div>
+    // <Header /> TODO 
+    <Mainlist />
+    // <Bottom /> TODO
   )
 }
 
