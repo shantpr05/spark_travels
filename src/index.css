@@ -1,13 +1,39 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root{
+  --primary-color: #14365D;
+  --secondary-color: #F2672B;
+  --background-color: #FFFFFF;
+  --cardFramework-color: 14365D33;  /*this code includes a transparency; don't change it*/
+  --searchBoxFill-color: #14365D0D;  /*this code includes a transparency; don't change it*/
+  --h1-familyFont: inter;
+  --h1-font-weight: bold;
+  --h2-familyFont: inter;
+  --h2-font-weight: 600;
+  --p-familyFont: inter;
+  --p-font-weight: normal;
+  --p-size: 14px;
+  --addButton-familyFont: sen;
+  --addButton-fontSize: 20px;
+  --addButton-font-weight: medium;
+  --filterButton-familyFont: sen;
+  --filterButton-fontSize: 20px;
+  --filterButton-font-weight: medium;
+  --editButton-familyFont: sen;
+  --editButton-fontSize: 14px;
+  --editButton-font-weight: medium;
+  --deleteButton-familyFont: sen;
+  --deleteButton-fontSize: 14px;
+  --deleteButton-font-weight: medium;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+body {
+  font-family: 'Inter', sans-serif, 'Sen', sans-serif;
+}
+
+
+
