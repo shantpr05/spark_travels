@@ -1,0 +1,25 @@
+.filterContainer {
+    padding: 20px;
+}
+
+.filterInput {
+    margin-right: 10px;
+    padding: 5px;
+    font-size: 16px;
+}
+
+.hotelList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.hotelItem {
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.hotelImage {
+    max-width: 100%;
+    height: auto;
+}
