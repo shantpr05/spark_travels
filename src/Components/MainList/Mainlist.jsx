@@ -1,13 +1,12 @@
-import { useState, useEffect, useCallback } from "react";
-import { fetchData, apiUrl } from "../Functions/FetchApi";
-import styles from './styles.module.css';
-import { DeleteItem } from "./DeleteItem";
+import { useState, useCallback } from "react";
+import styles from './Mainlist.module.css';
+import { DeleteItem } from "../DeleteItem/DeleteItem";
 import hotel from './hotel.png';
 
-export const Mainlist = () => {
-    const [hotels, setHotels] = useState([]);
+export const Mainlist = ({hotels, setHotels}) => {
     const [isOpen, setIsOpen] = useState(false);
     const [deletedItemId, setDeletedItemId] = useState()
+    const [visibleHotels, setVisibleHotels] = useState(9);
     console.log('l')
     const onOpen = () => {
         setIsOpen(true)
@@ -15,18 +14,6 @@ export const Mainlist = () => {
     const onClose = () => {
         setIsOpen(false)
     }
-
-    useEffect(() => {
-        const f = async () => {
-            try {
-                const response = await fetchData(apiUrl);
-                setHotels(response.features);
-            } catch (error) {
-                console.error(error);
-            }
-        }
-        f();
-    }, []);
 
     // const updateHotel = useCallback((updatedHotel) => {
     //     setHotels(prevHotels => {
@@ -56,29 +43,43 @@ export const Mainlist = () => {
         deleteHotel(hotelId);
     }, [deleteHotel]);
 
+    const loadMore = () => {
+        setVisibleHotels(prevVisible => prevVisible + 9);
+    };
+
     return (
         <>
             <div>
                 <div>Hotels</div>
+                
                 <ul className={styles.main}>
-                    {hotels?.map((item) => 
+                    {hotels?.slice(0, visibleHotels).map((item) => (
                         <li key={item.properties.place_id} className={styles.item}>
                             {item.properties.name}
                             {item.properties.address_line2}
                             {item.properties.city}
                             {item.properties.contact?.phone}
-                            {/* {item.properties.website && <img src={`https://image.thum.io/get/width/300/${item.properties.website}`} alt="Screenshot" />} */}
-                            <img src={hotel} alt='hotel'></img>
+                            {item.properties.website ? (
+                                <img 
+                                    src={`https://image.thum.io/get/width/300/${item.properties.website}`} 
+                                    alt="Screenshot" 
+                                    className={styles.hotelImage}
+                                    loading="lazy"
+                                />
+                            ) : <img src={hotel} alt='hotel' />}
                             <button onClick={() => onEdit(item)}>Edit</button>
-                            <button onClick={
-                                    () => {
-                                        onOpen()
-                                        setDeletedItemId(item.properties.place_id)
-                                    }
-                            }>Delete</button>
+                            <button onClick={() => {
+                                onOpen();
+                                setDeletedItemId(item.properties.place_id);
+                            }}>Delete</button>
                         </li>
-                    )}
-                </ul> 
+                    ))}
+                </ul>
+                {visibleHotels < hotels?.length && (
+                    <button onClick={loadMore} className={styles.seeMoreButton}>
+                        See More
+                    </button>
+                )}
             </div>
             {isOpen && <DeleteItem onLeave={onClose} onDelete={() => onRemove(deletedItemId)}/>}
         </>
