@@ -1,38 +1,39 @@
-.App {
-  text-align: center;
+:root{
+  --primary-color: #14365D;
+  --secondary-color: #F2672B;
+  --background-color: #FFFFFF;
+  --cardFramework-color: 14365D33;  /*this code includes a transparency; don't change it*/
+  --searchBoxFill-color: #14365D0D;  /*this code includes a transparency; don't change it*/
+  --h1-familyFont: inter;
+  --h1-font-weight: bold;
+  --h2-familyFont: inter;
+  --h2-font-weight: 600;
+  --p-familyFont: inter;
+  --p-font-weight: normal;
+  --p-size: 14px;
+  --addButton-familyFont: sen;
+  --addButton-fontSize: 20px;
+  --addButton-font-weight: medium;
+  --filterButton-familyFont: sen;
+  --filterButton-fontSize: 20px;
+  --filterButton-font-weight: medium;
+  --editButton-familyFont: sen;
+  --editButton-fontSize: 14px;
+  --editButton-font-weight: medium;
+  --deleteButton-familyFont: sen;
+  --deleteButton-fontSize: 14px;
+  --deleteButton-font-weight: medium;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  font-family: 'Inter', sans-serif, 'Sen', sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
