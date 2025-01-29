@@ -1,12 +1,21 @@
-import React from 'react'
-import {Mainlist} from './Components/Mainlist'
+import { React } from 'react';
+import FilterComponent from './Components/FilterComponent/FilterComponent';
+import FooterComponent from './Components/FooterComponent/FooterComponent';
 
 const App = () => {
   return (
-    // <Header /> TODO 
-    <Mainlist />
-    // <Bottom /> TODO
-  )
-}
+    <div>
+      <header>
+        <h1>Hotel Finder</h1>
+      </header>
+      <main>
+        <FilterComponent  />
+      </main>
+      <footer>
+        <FooterComponent />
+      </footer>
+    </div>
+  );
+};
 
-export default App
+export default App;
