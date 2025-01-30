@@ -1,0 +1,58 @@
+/* Navbar.module.css */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #FFFFFF;
+    color: white;
+}
+
+.logoContainer img {
+    width: 150px; /* Adjust logo size as needed */
+}
+
+.searchForm {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+
+.searchInput {
+    border: none;
+    padding: 8px 12px;
+    width: 250px;
+    border-radius: 20px;
+    outline: none;
+    background-color: #f4f4f4;
+}
+
+.searchButton {
+    background-color: #14365D;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.navButtons button {
+    background-color: #14365D;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.navButtons button:hover {
+    background-color: #14365D;
+}
+
+.searchButton:hover {
+    background-color:#14365D;
+}

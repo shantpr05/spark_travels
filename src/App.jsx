@@ -5,8 +5,11 @@ import FooterComponent from './Components/FooterComponent/FooterComponent';
 import { Mainlist } from './Components/MainList/Mainlist';
 import Loader from './Components/Loader/Loader';
 import { useLogic } from './hooks/useLogic';
+import Navbar from './Components/NavBarComponents/NavBar';
+import AddNewHotel from './Components/NavBarComponents/AddNewHotel';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-const App = () => {
+
 // 
 //   const [hotels, setHotels] = useState([]);
 //   const [filteredHotels, setFilteredHotels] = useState([]);
@@ -54,7 +57,8 @@ const App = () => {
 //       setFilteredHotels(filtered);
 //   }, [hotels, locationFilter, categoryFilter]);
 
-   const {
+const App = () => {
+  const {
     setHotels,
     filteredHotels, 
     locationFilter, 
@@ -63,53 +67,40 @@ const App = () => {
     setCategoryFilter,
     locations, 
     categories, 
-    isloading, 
-  } = useLogic() 
+    isLoading, 
+  } = useLogic();
 
   return (
-    <div>
-      <header>
-        <h1>Hotel Finder</h1>
-      </header>
-      <main>
-        <FilterComponent 
+    <Router>
+      <div>
+        <header>
+          <Navbar hotels={filteredHotels} setFilteredHotels={setHotels} allHotels={filteredHotels} />
+        </header>
+        <main>
+          {/* Add FilterComponent above Mainlist so filtering applies correctly */}
+          <FilterComponent 
             locations={locations} 
             locationFilter={locationFilter} 
             setLocationFilter={setLocationFilter} 
             categories={categories} 
             categoryFilter={categoryFilter} 
             setCategoryFilter={setCategoryFilter} 
-        />
+          />
 
-        {/* <ul className={styles.hotelList}>
-            {filteredHotels.map((hotel) => (
-                <li key={hotel.properties.place_id} className={styles.hotelItem}>
-                    <h3>{hotel.properties.name}</h3>
-                    <p>{hotel.properties.address_line2}</p>
-                    <p>{hotel.properties.city || hotel.properties.suburb}, {hotel.properties.country}</p>
-                    <p>{hotel.properties.contact?.phone}</p>
-                    {hotel.properties.website && (
-                        <img 
-                            src={`https://image.thum.io/get/width/300/${hotel.properties.website}`} 
-                            alt="Screenshot" 
-                            className={styles.hotelImage}
-                        />
-                    )}
-                </li>
-            ))}
-        </ul> */}
-        {isloading 
-            ? <Loader/>
-            : <Mainlist 
-                hotels={filteredHotels}
-                setHotels={setHotels}
+          <Routes>
+            <Route 
+              path="/" 
+              element={isLoading ? <Loader /> : <Mainlist hotels={filteredHotels} setHotels={setHotels} />} 
             />
-        }
-      </main>
-      <footer>
-        <FooterComponent />
-      </footer>
-    </div>
+            <Route path="/add-new" element={<AddNewHotel />} />
+          </Routes>
+          
+        </main>
+        <footer>
+          <FooterComponent />
+        </footer>
+      </div>
+    </Router>
   );
 };
 
