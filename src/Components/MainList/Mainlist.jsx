@@ -2,9 +2,10 @@ import { useState, useCallback } from "react";
 import styles from './Mainlist.module.css';
 import { DeleteItem } from "../DeleteItem/DeleteItem";
 import hotel from './hotel.png';
-
+import { EditHotel } from "../editItem/EditHotel";
 export const Mainlist = ({hotels, setHotels}) => {
     const [isOpen, setIsOpen] = useState(false);
+    const [EditHotelId, setEditHotelId] = useState()
     const [deletedItemId, setDeletedItemId] = useState()
     const [visibleHotels, setVisibleHotels] = useState(9);
     console.log('l')
@@ -67,7 +68,11 @@ export const Mainlist = ({hotels, setHotels}) => {
                                     loading="lazy"
                                 />
                             ) : <img src={hotel} alt='hotel' />}
-                            <button onClick={() => onEdit(item)}>Edit</button>
+                            {/* <button onClick={() => onEdit(item)}>Edit</button> */}
+                             <button onClick={() => {
+                                onOpen();
+                                setEditHotelId(item.properties.place_id);
+                            }}>Edit</button>
                             <button onClick={() => {
                                 onOpen();
                                 setDeletedItemId(item.properties.place_id);
@@ -81,6 +86,7 @@ export const Mainlist = ({hotels, setHotels}) => {
                     </button>
                 )}
             </div>
+            {isOpen && <EditHotel onLeave={onClose} onEdit={() => onEdit(EditHotelId)} />}
             {isOpen && <DeleteItem onLeave={onClose} onDelete={() => onRemove(deletedItemId)}/>}
         </>
     )
