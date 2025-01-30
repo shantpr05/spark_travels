@@ -10,6 +10,8 @@
     border: 1px solid #ddd;
     padding: 15px;
     border-radius: 5px;
+    max-width: 224px;
+    justify-self: center;
   }
 
 .deleteItemWrapper {
@@ -37,6 +39,59 @@
 
   .hotelImage {
     width: 10rem;
-    /* height: 11.25rem; */
     flex-shrink: 0;
+}
+
+.hotelDescribtion {
+  color: var(--primary-color);
+  font-family: Inter;
+}
+.hotelName {
+  font-weight: 700;
+}
+
+.hotelButton {
+  padding: 0.54913rem 1.22031rem;
+  border-radius: 2.74569rem;
+  background-color: var(--primary-color);
+  color: #FFF;
+  font-family: Inter;
+  font-size: 0.85419rem;
+  border-color: none;
+  border-style: none;
+}
+
+.hotelButtons {
+  display: flex;
+  gap: 20px;
+}
+
+.seeMoreButton {
+  background-color: #F2672B;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  /* display: block; */
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  font-size: 16px;
+  font-weight: bold;
+  /* text-align: center; */
+  /* text-decoration: none; */
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(242, 103, 43, 0.3);
+}
+
+.seeMoreButton:hover {
+  background-color: #D85A24; 
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(242, 103, 43, 0.5);
+}
+
+.seeMoreButton:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(242, 103, 43, 0.4);
 }

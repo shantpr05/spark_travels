@@ -1,4 +1,4 @@
-export const apiUrl = "https://api.geoapify.com/v2/places?categories=accommodation&filter=circle:15.4515,62.7838,7000000&limit=500&apiKey=7e2095ee83924cbf9b1d99db359cfd5d";
+export const apiUrl = "https://api.geoapify.com/v2/places?categories=accommodation&filter=circle:15.4515,62.7838,7000000&limit=30&apiKey=7e2095ee83924cbf9b1d99db359cfd5d";
 export async function fetchData(url) {
   try {
       const response = await fetch(url);
