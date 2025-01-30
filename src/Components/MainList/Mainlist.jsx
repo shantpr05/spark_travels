@@ -3,34 +3,16 @@ import styles from './Mainlist.module.css';
 import { DeleteItem } from "../DeleteItem/DeleteItem";
 import hotel from './hotel.png';
 import { EditHotel } from "../editItem/EditHotel";
+
 export const Mainlist = ({hotels, setHotels}) => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [EditHotelId, setEditHotelId] = useState()
+    const [isOpenDelete, setIsOpenDelete] = useState(false);
+    const [isOpenEdit, setIsOpenEdit] = useState(false);
+
+    const [editHotel, setEditHotel] = useState()
     const [deletedItemId, setDeletedItemId] = useState()
+
     const [visibleHotels, setVisibleHotels] = useState(9);
     console.log('l')
-    const onOpen = () => {
-        setIsOpen(true)
-    }
-    const onClose = () => {
-        setIsOpen(false)
-    }
-
-    // const updateHotel = useCallback((updatedHotel) => {
-    //     setHotels(prevHotels => {
-    //         const index = prevHotels.findIndex(h => h.properties.place_id === updatedHotel.properties.place_id);
-    //         if (index !== -1) {
-    //             const newHotels = [...prevHotels];
-    //             newHotels[index] = updatedHotel;
-    //             return newHotels;
-    //         }
-    //         return prevHotels;
-    //     });
-    // }, []);
-
-    // const addHotel = useCallback((newHotel) => {
-    //     setHotels(prevHotels => [...prevHotels, newHotel]);
-    // }, []);
 
     const deleteHotel = useCallback((hotelId) => {
         setHotels(prevHotels => prevHotels.filter(h => h.properties.place_id !== hotelId));
@@ -43,6 +25,18 @@ export const Mainlist = ({hotels, setHotels}) => {
     const onRemove = useCallback((hotelId) => {
         deleteHotel(hotelId);
     }, [deleteHotel]);
+
+    const handleSave = useCallback((updatedHotel) => {
+        setHotels((prevHotels) =>
+            prevHotels.map((h) =>
+                h.properties.place_id === updatedHotel.properties.place_id
+                    ? updatedHotel
+                    : h
+            )
+        );
+        setIsOpenEdit(false);
+    }, [setHotels]);
+    
 
     const loadMore = () => {
         setVisibleHotels(prevVisible => prevVisible + 9);
@@ -68,13 +62,12 @@ export const Mainlist = ({hotels, setHotels}) => {
                                     loading="lazy"
                                 />
                             ) : <img src={hotel} alt='hotel' />}
-                            {/* <button onClick={() => onEdit(item)}>Edit</button> */}
                              <button onClick={() => {
-                                onOpen();
-                                setEditHotelId(item.properties.place_id);
+                                setIsOpenEdit(true);
+                                setEditHotel(item);
                             }}>Edit</button>
                             <button onClick={() => {
-                                onOpen();
+                                setIsOpenDelete(true);
                                 setDeletedItemId(item.properties.place_id);
                             }}>Delete</button>
                         </li>
@@ -86,8 +79,14 @@ export const Mainlist = ({hotels, setHotels}) => {
                     </button>
                 )}
             </div>
-            {isOpen && <EditHotel onLeave={onClose} onEdit={() => onEdit(EditHotelId)} />}
-            {isOpen && <DeleteItem onLeave={onClose} onDelete={() => onRemove(deletedItemId)}/>}
+            {isOpenEdit && <EditHotel 
+                onCancel={() => setIsOpenEdit(false)} 
+                onSave={handleSave} 
+                hotel={editHotel}
+                
+                
+            />}
+            {isOpenDelete && <DeleteItem onLeave={() => setIsOpenDelete(false)} onDelete={() => onRemove(deletedItemId)}/>}
         </>
     )
 }
