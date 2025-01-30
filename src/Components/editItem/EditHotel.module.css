@@ -1,0 +1,65 @@
+.editHotelWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+.editHotelForm {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    max-width: 90%;
+}
+
+.editHotelForm h2 {
+    margin-bottom: 16px;
+}
+
+.editHotelForm label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.editHotelForm input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.editHotelForm .buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.editHotelForm button {
+    padding: 10px 20px;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.editHotelForm button:hover {
+    background: #0056b3;
+}
+
+.editHotelForm button[type="button"] {
+    background: #dc3545;
+}
+
+.editHotelForm button[type="button"]:hover {
+    background: #a71d2a;
+}
