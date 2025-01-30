@@ -45,31 +45,33 @@ export const Mainlist = ({hotels, setHotels}) => {
     return (
         <>
             <div>
-                <div>Hotels</div>
+                <div>My Hotels list</div>
                 
                 <ul className={styles.main}>
                     {hotels?.slice(0, visibleHotels).map((item) => (
                         <li key={item.properties.place_id} className={styles.item}>
-                            {item.properties.name}
-                            {item.properties.address_line2}
-                            {item.properties.city}
-                            {item.properties.contact?.phone}
-                            {item.properties.website ? (
-                                <img 
-                                    src={`https://image.thum.io/get/width/300/${item.properties.website}`} 
-                                    alt="Screenshot" 
-                                    className={styles.hotelImage}
-                                    loading="lazy"
-                                />
-                            ) : <img src={hotel} alt='hotel' />}
-                             <button onClick={() => {
-                                setIsOpenEdit(true);
-                                setEditHotel(item);
-                            }}>Edit</button>
-                            <button onClick={() => {
-                                setIsOpenDelete(true);
-                                setDeletedItemId(item.properties.place_id);
-                            }}>Delete</button>
+                            <img 
+                                src={`https://maps.geoapify.com/v1/staticmap?style=osm-bright&width=200&height=100&center=lonlat:${item.geometry.coordinates[0]},${item.geometry.coordinates[1]}&zoom=14&apiKey=7e2095ee83924cbf9b1d99db359cfd5d`}
+                                alt="Hotel Location Map"
+                                className={styles.hotelImage}
+                                loading="lazy"
+                            />
+                            <div className={styles.hotelDescribtion}>
+                                <p className={styles.hotelName}> {item.properties.name}</p>
+                                <p>{item.properties.address_line2}</p>
+                                <p>{item.properties.city}</p>
+                                <p>{item.properties.contact?.phone}</p>
+                            </div>
+                            <div className={styles.hotelButtons}> 
+                                <button className={styles.hotelButton} onClick={() => {
+                                    setIsOpenEdit(true);
+                                    setEditHotel(item);
+                                }}>Edit</button>
+                                <button className={styles.hotelButton} onClick={() => {
+                                    setIsOpenDelete(true);
+                                    setDeletedItemId(item.properties.place_id);
+                                }}>Delete</button>
+                            </div>
                         </li>
                     ))}
                 </ul>
