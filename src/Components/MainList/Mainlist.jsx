@@ -12,19 +12,10 @@ export const Mainlist = ({hotels, setHotels}) => {
     const [deletedItemId, setDeletedItemId] = useState()
 
     const [visibleHotels, setVisibleHotels] = useState(9);
-    console.log('l')
 
-    const addHotel = useCallback((newHotel) => {
-        setHotels(prevHotels => [...prevHotels, newHotel]);
-    }, [setHotels]);
     
-
     const deleteHotel = useCallback((hotelId) => {
         setHotels(prevHotels => prevHotels.filter(h => h.properties.place_id !== hotelId));
-    }, []);
-
-    const onEdit = useCallback((hotel) => {
-        console.log("Editing hotel:", hotel);
     }, []);
 
     const onRemove = useCallback((hotelId) => {
@@ -50,17 +41,24 @@ export const Mainlist = ({hotels, setHotels}) => {
     return (
         <>
             <div>
-                <div>My Hotels list</div>
-                
                 <ul className={styles.main}>
                     {hotels?.slice(0, visibleHotels).map((item) => (
                         <li key={item.properties.place_id} className={styles.item}>
+                            {item?.geometry?.coordinates ? 
                             <img 
                                 src={`https://maps.geoapify.com/v1/staticmap?style=osm-bright&width=200&height=100&center=lonlat:${item.geometry.coordinates[0]},${item.geometry.coordinates[1]}&zoom=14&apiKey=7e2095ee83924cbf9b1d99db359cfd5d`}
                                 alt="Hotel Location Map"
                                 className={styles.hotelImage}
                                 loading="lazy"
                             />
+                            : 
+                            <img 
+                                src={hotel}
+                                alt="Default hotel"
+                                className={styles.hotelImage}
+                                loading="lazy"
+                            />
+                            }
                             <div className={styles.hotelDescribtion}>
                                 <p className={styles.hotelName}> {item.properties.name}</p>
                                 <p>{item.properties.address_line2}</p>

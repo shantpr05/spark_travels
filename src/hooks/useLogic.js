@@ -1,15 +1,25 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { fetchData, apiUrl } from '../Functions/FetchApi';
 
 export const useLogic = () => {
-      const [hotels, setHotels] = useState([]);
-      const [filteredHotels, setFilteredHotels] = useState([]);
-      const [locationFilter, setLocationFilter] = useState('');
-      const [categoryFilter, setCategoryFilter] = useState('');
-      const [locations, setLocations] = useState([]);
-      const [categories, setCategories] = useState([]);
-      const [isloading, setIsloading] = useState(false);
-    
+    const [hotels, setHotels] = useState([]);
+    const [filteredHotels, setFilteredHotels] = useState([]);
+    const [locationFilter, setLocationFilter] = useState('');
+    const [categoryFilter, setCategoryFilter] = useState('');
+    const [locations, setLocations] = useState([]);
+    const [categories, setCategories] = useState([]);
+    const [isLoading, setIsloading] = useState(false);
+
+    const [query, setQuery] = useState('');
+
+    const searchSubmit = useCallback((searchString) => {
+        setQuery(searchString)
+    }, []);
+
+    const addHotel = useCallback((hotel) => {
+        setHotels((prevHotels) => [hotel, ...prevHotels]);
+    },[]);
+
       useEffect(() => {
           const fetchHotels = async () => {
               setIsloading(true)   
@@ -21,11 +31,11 @@ export const useLogic = () => {
                   
                   // Extract unique locations (city, country)
                   const uniqueLocations = [...new Set(response.features.map(hotel => {
-                      const city = hotel.properties.city || hotel.properties.suburb || 'Unknown City';
-                      const country = hotel.properties.country || 'Unknown Country';
+                      const city = hotel.properties?.city || hotel.properties?.suburb || 'Unknown City';
+                      const country = hotel.properties?.country || 'Unknown Country';
                       return `${city}, ${country}`;
                   }))].sort();
-                  console.log('Unique Locations:', uniqueLocations);
+                //   console.log('Unique Locations:', uniqueLocations);
                   setLocations(uniqueLocations);
     
                   // Extract unique categories
@@ -41,12 +51,21 @@ export const useLogic = () => {
     
       useEffect(() => {
           const filtered = hotels.filter(hotel => {
-              const hotelLocation = `${hotel.properties.city || hotel.properties.suburb || 'Unknown City'}, ${hotel.properties.country || 'Unknown Country'}`;
+              const hotelLocation = `${hotel.properties?.city || hotel.properties?.suburb || 'Unknown City'}, ${hotel.properties?.country || 'Unknown Country'}`;
               return (locationFilter === '' || hotelLocation === locationFilter) &&
                      (categoryFilter === '' || (hotel.properties.categories || []).includes(categoryFilter));
           });
-          setFilteredHotels(filtered);
-      }, [hotels, locationFilter, categoryFilter]);
+          const searchTerm = query.toLowerCase();
+          const filteredByName = filtered.filter(hotel =>
+              hotel.properties.name.toLowerCase().includes(searchTerm) ||
+              hotel.properties.city.toLowerCase().includes(searchTerm) ||
+              (hotel.properties.address_line2 && hotel.properties.address_line2.toLowerCase().includes(searchTerm)) ||
+              (hotel.properties.contact?.phone && hotel.properties.contact.phone.toLowerCase().includes(searchTerm))
+          );
+          setFilteredHotels(filteredByName);
+      }, [hotels, locationFilter, categoryFilter, query]);
+
+
       return {
         hotels,
         setHotels,
@@ -60,7 +79,9 @@ export const useLogic = () => {
         setLocations,
         categories, 
         setCategories,
-        isloading, 
+        isLoading, 
         setIsloading,
+        searchSubmit,
+        addHotel
       }
 }

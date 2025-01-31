@@ -1,8 +1,12 @@
-// AddNewHotel.jsx
 import React, { useState } from 'react';
+import { v4 as uuid } from "uuid";
+import { useNavigate } from "react-router";
+
 import styles from './AddNewHotel.module.css';
 
 const AddNewHotel = ({ addHotel }) => {
+    let navigate = useNavigate();
+
     const [newHotel, setNewHotel] = useState({
         name: '',
         address_line2: '',
@@ -21,8 +25,23 @@ const AddNewHotel = ({ addHotel }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Call the addHotel function passed as a prop to save the new hotel
-        addHotel(newHotel);
+
+        const newMappedHotel = {
+            properties: {
+                place_id: uuid(),
+                name: newHotel.name,
+                address_line2: newHotel.address_line2,
+                categories: [
+                    "accommodation",
+                    "accommodation.hotel"
+                ],
+                city: newHotel.city,
+                website: newHotel.website,
+                contact: {phone: newHotel.phone}
+            }
+        }
+
+        addHotel(newMappedHotel);
         // Reset the form after submission
         setNewHotel({
             name: '',
@@ -31,6 +50,7 @@ const AddNewHotel = ({ addHotel }) => {
             phone: '',
             website: '',
         });
+        navigate(-1);
     };
 
     return (
@@ -90,7 +110,7 @@ const AddNewHotel = ({ addHotel }) => {
                         onChange={handleChange}
                     />
                 </div>
-                <button form='save' type="submit" className={styles.submitButton}>Save Hotel</button>
+                <button form='save' type="submit" className={styles.submitButton}>Add Hotel</button>
             </form>
         </div>
     );
