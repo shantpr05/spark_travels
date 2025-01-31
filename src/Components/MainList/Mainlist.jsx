@@ -14,6 +14,11 @@ export const Mainlist = ({hotels, setHotels}) => {
     const [visibleHotels, setVisibleHotels] = useState(9);
     console.log('l')
 
+    const addHotel = useCallback((newHotel) => {
+        setHotels(prevHotels => [...prevHotels, newHotel]);
+    }, [setHotels]);
+    
+
     const deleteHotel = useCallback((hotelId) => {
         setHotels(prevHotels => prevHotels.filter(h => h.properties.place_id !== hotelId));
     }, []);
