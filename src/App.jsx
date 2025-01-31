@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from 'react';
-import { fetchData, apiUrl } from './Functions/FetchApi';
 import FilterComponent from './Components/FilterComponent/FilterComponent';
 import FooterComponent from './Components/FooterComponent/FooterComponent';
 import { Mainlist } from './Components/MainList/Mainlist';
@@ -7,7 +5,6 @@ import Loader from './Components/Loader/Loader';
 import { useLogic } from './hooks/useLogic';
 import Navbar from './Components/NavBarComponents/NavBar';
 import AddNewHotel from './Components/NavBarComponents/AddNewHotel';
-import Search from './Components/NavBarComponents/Search';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 const App = () => {
@@ -22,19 +19,19 @@ const App = () => {
     locations, 
     categories, 
     isLoading, 
+    searchSubmit,
+    addHotel
   } = useLogic();
-  
-  const addHotel = (hotel) => {
-    setHotels((prevHotels) => [...prevHotels, hotel]);
-};
-
-  
 
   return (
     <Router>
       <div>
         <header>
-          <Navbar hotels={filteredHotels} setFilteredHotels={setHotels} allHotels={filteredHotels} />
+          <Navbar 
+            hotels={filteredHotels} 
+            setHotels={setHotels}  
+            searchSubmit={searchSubmit}
+          />
         </header>
         <main>
           {/* Add FilterComponent above Mainlist so filtering applies correctly */}
@@ -52,7 +49,7 @@ const App = () => {
               path="/" 
               element={isLoading ? <Loader /> : <Mainlist hotels={filteredHotels} setHotels={setHotels} />} 
             />
-            <Route path="/add-new" element={<AddNewHotel />} />
+            <Route path="/add-new" element={<AddNewHotel addHotel={addHotel} />} />
             
           </Routes>
           

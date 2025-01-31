@@ -1,11 +1,9 @@
-// Navbar.jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';  // Import for routing if you're using React Router
 import styles from './NavBar.module.css'; // You'll create a CSS file for styling the Navbar
 
-const Navbar = () => {
+const Navbar = ({searchSubmit}) => {
     const [searchQuery, setSearchQuery] = useState('');
-    const navigate = useNavigate();
 
     const handleSearchChange = (e) => {
         setSearchQuery(e.target.value);
@@ -13,9 +11,10 @@ const Navbar = () => {
 
     const handleSearchSubmit = (e) => {
         e.preventDefault();
-        // Here you could implement the search functionality
-        console.log('Search for:', searchQuery);
+        searchSubmit(searchQuery)
     };
+
+    const navigate = useNavigate();
 
     const handleHomeClick = () => {
         navigate('/');  // Navigate to the home page
@@ -30,7 +29,6 @@ const Navbar = () => {
             <div className={styles.logoContainer}>
                 <img 
                     src="/assets/logo.png" alt="Logo" width="150" height="auto"  // Add your logo URL here
-                    
                     className={styles.logo}
                 />
             </div>
