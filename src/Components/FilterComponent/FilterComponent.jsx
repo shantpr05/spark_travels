@@ -16,7 +16,7 @@ const FilterComponent = ({
                 onChange={(e) => setLocationFilter(e.target.value)}
                 className={styles.filterInput}
             >
-                <option value="">All Locations</option>
+                <option value="" class="placeholder">All Locations</option>
                 {locations.map((location, index) => (
                     <option key={index} value={location}>{location}</option>
                 ))}

@@ -2,13 +2,22 @@
     padding: 20px;
     display: flex;
     justify-content: center;
-    margin: auto;
+    margin-top: 16px;
+    gap: 40px;
 }
 
 .filterInput {
     margin-right: 10px;
     padding: 5px;
     font-size: 16px;
+    width: fit-content;
+    height: 45px;
+    border: 2px solid;
+    border-radius: 12px;
+    border-color: var(--primary-color);
 }
 
+.filterInput option{
+    color: var(--primary-color);
+}
 

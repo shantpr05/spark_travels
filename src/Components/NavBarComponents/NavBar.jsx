@@ -29,7 +29,7 @@ const Navbar = ({searchSubmit}) => {
         <nav className={styles.navbar}>
             <div className={styles.logoContainer}>
                 <img 
-                    src={logo} alt="Logo" width="150" height="auto"  
+                    src={logo} alt="Logo" width="250" height="auto"  
                     className={styles.logo}
                 />
             </div>
