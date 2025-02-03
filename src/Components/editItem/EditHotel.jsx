@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from './EditHotel.module.css';
+import bg from './bg.png';
 
 export const EditHotel = ({ hotel, onSave, onCancel }) => {
     const [formData, setFormData] = useState({ ...hotel.properties });
@@ -19,6 +20,14 @@ export const EditHotel = ({ hotel, onSave, onCancel }) => {
 
     return (
         <div className={styles.editHotelWrapper}>
+            <div className={styles.imageContainer}>
+                <img 
+                    src={bg} 
+                    alt="background" 
+                    className={styles.hotelImage} 
+                />
+            </div>
+
             <form className={styles.editHotelForm} onSubmit={handleSubmit}>
                 <h2>Edit Hotel</h2>
                 <label>
