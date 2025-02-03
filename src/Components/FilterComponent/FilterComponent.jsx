@@ -11,16 +11,19 @@ const FilterComponent = ({
 }) => {
     return (
         <div className={styles.filterContainer}>
+            {/* Dropdown for filtering by location */}
             <select
                 value={locationFilter}
                 onChange={(e) => setLocationFilter(e.target.value)}
                 className={styles.filterInput}
             >
-                <option value="" class="placeholder">All Locations</option>
+                <option value="" className="placeholder">All Locations</option>
                 {locations.map((location, index) => (
                     <option key={index} value={location}>{location}</option>
                 ))}
             </select>
+            
+            {/* Dropdown for filtering by category */}
             <select
                 value={categoryFilter}
                 onChange={(e) => setCategoryFilter(e.target.value)}

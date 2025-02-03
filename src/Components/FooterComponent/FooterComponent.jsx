@@ -12,6 +12,7 @@ import "./FooterComponent.css";
 const FooterComponent = () => {
   return (
     <footer className="footer">
+      {/* Left section of the footer containing logo and description */}
       <div className="footer-left">
         <div className="footer-logo">
           {" "}
@@ -30,6 +31,7 @@ const FooterComponent = () => {
         </div>
       </div>
 
+      {/* Right section of the footer containing copyright and links */}
       <div className="footer-right">
         <p>Copyright © 2025</p>
         <p>
