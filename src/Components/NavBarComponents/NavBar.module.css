@@ -1,14 +1,20 @@
-/* Navbar.module.css */
-
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 120px;
+    padding: 24px 5%;
     background-color: #FFFFFF;
-    color: white;
     border-bottom: 1px solid #ddd;
+    flex-wrap: nowrap;
 }
+
+.logo {
+    width: 150px;  /* Set a default width */
+    height: auto;  /* Maintain aspect ratio */
+    object-fit: contain;  /* Ensure the image fits properly */
+    cursor: pointer; /* Add pointer cursor for clickable logos */
+}
+ 
 
 .searchForm {
     display: flex;
@@ -16,13 +22,15 @@
     background-color: white;
     border-radius: 20px;
     padding: 5px 10px;
-   
+    flex-grow: 1;
+    max-width: 400px;
 }
 
 .searchInput {
     border: none;
     padding: 8px 12px;
-    width: 300px;
+    width: 100%;
+    max-width: 250px;
     height: 45px;
     border-radius: 20px;
     outline: none;
@@ -36,11 +44,16 @@
     color: white;
     border: none;
     padding: 8px 12px;
-    border-radius:var(--border-radius-buttons);
+    border-radius: var(--border-radius-buttons);
     cursor: pointer;
     width: 110px;
     height: 45px;
     font-size: 16px;
+}
+
+.navButtons {
+    display: flex;
+    gap: 10px;
 }
 
 .navButtons button {
@@ -49,26 +62,55 @@
     padding: 8px 15px;
     border: none;
     border-radius: 20px;
-    margin-left: 10px;
     cursor: pointer;
-}
-
-.homeButton{
+    font-size: 16px;
     width: 110px;
     height: 45px;
-    font-size: 16px;
 }
 
-.addNewButton{
-    width: 110px;
-    height: 45px;
-    font-size: 16px;
+.navButtons button:hover, .searchButton:hover {
+    background-color: #0F2B47;
 }
 
-.navButtons button:hover {
-    background-color: #14365D;
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 16px 5%;
+    }
+
+    .logo {
+        width: 120px;  /* Adjust for smaller screens */
+    }
+
+    .searchForm {
+        width: 100%;
+        max-width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .searchInput {
+        width: 80%;
+        max-width: 100%;
+    }
+
+    .navButtons {
+        flex-direction: column;
+        width: 90%;
+        gap: 10px;
+    }
+
+    .navButtons button {
+        width: 100%;
+    }
 }
 
-.searchButton:hover {
-    background-color:#14365D;
+@media screen and (max-width: 480px) {
+
+    .logo {
+        width: 100px;  /* Reduce size further on very small screens */
+    }
 }
