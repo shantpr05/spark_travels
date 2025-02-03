@@ -3,6 +3,8 @@ import styles from './Mainlist.module.css';
 import { DeleteItem } from "../DeleteItem/DeleteItem";
 import hotel from './hotel.png';
 import { EditHotel } from "../editItem/EditHotel";
+import { FaMapMarkerAlt, FaCity, FaPhoneAlt } from "react-icons/fa";
+
 
 export const Mainlist = ({hotels, setHotels}) => {
     const [isOpenDelete, setIsOpenDelete] = useState(false);
@@ -61,9 +63,9 @@ export const Mainlist = ({hotels, setHotels}) => {
                             }
                             <div className={styles.hotelDescription}>
                                 <h2 className={styles.hotelName}> {item.properties.name}</h2>
-                                <p>{item.properties.address_line2}</p>
-                                <p>{item.properties.city}</p>
-                                <p>{item.properties.contact?.phone}</p>
+                                <p><FaMapMarkerAlt /> {item.properties.address_line2}</p>
+                                <p><FaCity /> {item.properties.city}</p>
+                                <p><FaPhoneAlt /> {item.properties.contact?.phone}</p>
                             </div>
                             <div className={styles.hotelButtons}> 
                                 <button className={styles.hotelButton} onClick={() => {
