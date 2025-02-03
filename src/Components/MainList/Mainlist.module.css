@@ -44,7 +44,7 @@
 
 .hotelDescribtion {
   color: var(--primary-color);
-  font-family: Inter;
+  font-family: var(--p-familyFont);
 }
 .hotelName {
   font-weight: 700;
@@ -52,46 +52,32 @@
 
 .hotelButton {
   padding: 0.54913rem 1.22031rem;
-  border-radius: 2.74569rem;
-  background-color: var(--primary-color);
+  border-radius: var(--border-radius-buttons);
+  background-color: var(--secondary-color);
   color: #FFF;
   font-family: Inter;
-  font-size: 0.85419rem;
+  font-size: var(--font-size-buttons);
   border-color: none;
   border-style: none;
 }
 
 .hotelButtons {
   display: flex;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: auto;
+  align-items: center;
+  border-radius: var(--border-radius-buttons);
 }
 
 .seeMoreButton {
-  background-color: #F2672B;
+  display: grid;
+  background-color: var(--secondary-color);
   color: white;
   border: none;
-  padding: 12px 24px;
-  /* display: block; */
-  /* margin-left: auto; */
-  /* margin-right: auto; */
-  font-size: 16px;
-  font-weight: bold;
-  /* text-align: center; */
-  /* text-decoration: none; */
-  display: inline-block;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 5px rgba(242, 103, 43, 0.3);
-}
-
-.seeMoreButton:hover {
-  background-color: #D85A24; 
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(242, 103, 43, 0.5);
-}
-
-.seeMoreButton:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 4px rgba(242, 103, 43, 0.4);
+  border-radius: var(--border-radius-buttons);
+  cursor: var(--cursor-buttons);
+  padding: var(--padding-buttons);
+  justify-content: center;
+  margin: auto;
 }

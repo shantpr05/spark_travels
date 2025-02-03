@@ -87,8 +87,7 @@ export const Mainlist = ({hotels, setHotels}) => {
             {isOpenEdit && <EditHotel 
                 onCancel={() => setIsOpenEdit(false)} 
                 onSave={handleSave} 
-                hotel={editHotel}
-                
+                hotel={editHotel}   
                 
             />}
             {isOpenDelete && <DeleteItem onLeave={() => setIsOpenDelete(false)} onDelete={() => onRemove(deletedItemId)}/>}

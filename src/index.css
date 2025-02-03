@@ -23,6 +23,11 @@
   --deleteButton-familyFont: sen;
   --deleteButton-fontSize: 14px;
   --deleteButton-font-weight: medium;
+  --border-radius-buttons: 10px;
+  --padding-buttons: 10px;
+  --font-size-buttons: 14px;
+  --cursor-buttons: pointer;
+
 }
 
 *{

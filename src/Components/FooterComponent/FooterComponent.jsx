@@ -6,6 +6,7 @@ import {
   FaLinkedinIn,
   FaYoutube,
 } from "react-icons/fa";
+import logo from '../../assets/logo.png';
 import "./FooterComponent.css";
 
 const FooterComponent = () => {
@@ -14,7 +15,7 @@ const FooterComponent = () => {
       <div className="footer-left">
         <div className="footer-logo">
           {" "}
-          <img src="/assets/logo.png" alt="Logo" width="150" height="auto" />
+          <img src={logo} alt="Logo" width="150" height="auto" />
         </div>
         <p>We will take care of your beautiful holiday <br /> instantly and memorably.</p>
         <div className="social-icons">
@@ -30,11 +31,11 @@ const FooterComponent = () => {
         <p>Copyright © 2025</p>
         <p>
           All Rights Reserved | 
-          <a href="/additional/termsAndConditions.html" target="_blank">
+          <a href="./assets/termsAndConditions.html" target="_blank">
             Terms and Conditions
           </a>{" "}
           |{" "}
-          <a href="/additional/privacyPolicy.html" target="_blank">
+          <a href="/assets/privacyPolicy.html" target="_blank">
             Privacy Policy
           </a>
         </p>

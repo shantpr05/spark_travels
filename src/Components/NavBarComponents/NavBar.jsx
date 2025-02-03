@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';  // Import for routing if you're using React Router
-import styles from './NavBar.module.css'; // You'll create a CSS file for styling the Navbar
+import styles from './NavBar.module.css';
+import logo from '../../assets/logo.png';
 
 const Navbar = ({searchSubmit}) => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -28,7 +29,7 @@ const Navbar = ({searchSubmit}) => {
         <nav className={styles.navbar}>
             <div className={styles.logoContainer}>
                 <img 
-                    src="/assets/logo.png" alt="Logo" width="150" height="auto"  // Add your logo URL here
+                    src={logo} alt="Logo" width="150" height="auto"  
                     className={styles.logo}
                 />
             </div>
