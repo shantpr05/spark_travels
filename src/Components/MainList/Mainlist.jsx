@@ -18,7 +18,7 @@ export const Mainlist = ({hotels, setHotels}) => {
     
     const deleteHotel = useCallback((hotelId) => {
         setHotels(prevHotels => prevHotels.filter(h => h.properties.place_id !== hotelId));
-    }, []);
+    }, [setHotels]);
 
     const onRemove = useCallback((hotelId) => {
         deleteHotel(hotelId);

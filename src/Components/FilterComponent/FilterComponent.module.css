@@ -4,6 +4,7 @@
     justify-content: center;
     margin-top: 16px;
     gap: 40px;
+    flex-wrap: wrap;
 }
 
 .filterInput {
@@ -21,3 +22,15 @@
     color: var(--primary-color);
 }
 
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .filterContainer {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .filterInput {
+        width: 100%;
+        max-width: 300px;
+    }
+}

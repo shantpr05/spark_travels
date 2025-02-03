@@ -1,12 +1,13 @@
 .main {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   gap: 50px;
-  padding: 0 5px 20px 20px ;
+  padding: 0 20px 20px;
   margin: 40px auto;
-  list-style: none; 
-  justify-content: center; 
+  list-style: none;
+  justify-content: center;
 }
 
 .item {
@@ -104,14 +105,51 @@
   border: 0.3px solid var(--primary-color);
 }
 
+/* Medium Screens (Tablets) */
 @media (max-width: 1024px) {
   .main {
       grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      padding: 0 10px;
   }
 }
 
+/* Small Screens (Mobile) */
 @media (max-width: 768px) {
   .main {
       grid-template-columns: 1fr;
+      gap: 20px;
+      padding: 0 5px;
+  }
+  
+  .item {
+      padding: 8%;
+  }
+}
+
+/* Extra Small Screens (Phones) */
+@media (max-width: 480px) {
+  .main {
+      grid-template-columns: 1fr;
+      gap: 15px;
+      padding: 0;
+  }
+  
+  .item {
+      padding: 6%;
+  }
+  
+  .hotelImage {
+      height: 180px;
+      border-radius: 15px;
+  }
+  
+  .hotelButtons {
+      flex-direction: column;
+      gap: 8px;
+  }
+  
+  .hotelButton {
+      width: 100%;
   }
 }

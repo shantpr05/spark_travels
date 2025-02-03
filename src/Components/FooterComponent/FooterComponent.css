@@ -10,6 +10,10 @@
   border-top: 1px solid #ddd;
 }
 
+.footer-left {
+  flex: 1;
+}
+
 .footer-left h2 {
   font-family: var(--h1-familyFont);
   font-weight: var(--h1-font-weight);
@@ -43,6 +47,7 @@
 
 .footer-right {
   text-align: right;
+  flex: 1;
 }
 
 .footer-right .rights {
@@ -57,4 +62,27 @@
 
 .footer-right a:hover {
   text-decoration: underline;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px 20px;
+  }
+
+  .footer-left,
+  .footer-right {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .social-icons svg {
+    font-size: 18px;
+  }
 }
