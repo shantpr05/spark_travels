@@ -59,8 +59,8 @@ export const Mainlist = ({hotels, setHotels}) => {
                                 loading="lazy"
                             />
                             }
-                            <div className={styles.hotelDescribtion}>
-                                <p className={styles.hotelName}> {item.properties.name}</p>
+                            <div className={styles.hotelDescription}>
+                                <h2 className={styles.hotelName}> {item.properties.name}</h2>
                                 <p>{item.properties.address_line2}</p>
                                 <p>{item.properties.city}</p>
                                 <p>{item.properties.contact?.phone}</p>

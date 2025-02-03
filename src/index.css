@@ -2,7 +2,7 @@
   --primary-color: #14365D;
   --secondary-color: #F2672B;
   --background-color: #FFFFFF;
-  --cardFramework-color: 14365D33;  /*this code includes a transparency; don't change it*/
+  --cardFramework-color: #14365D33;  /*this code includes a transparency; don't change it*/
   --searchBoxFill-color: #14365D0D;  /*this code includes a transparency; don't change it*/
   --h1-familyFont: inter;
   --h1-font-weight: bold;
@@ -10,7 +10,7 @@
   --h2-font-weight: 600; /*semibold*/
   --p-familyFont: inter;
   --p-font-weight: normal;
-  --p-size: 14px;
+  --p-size: 16px;
   --addButton-familyFont: sen;
   --addButton-fontSize: 20px;
   --addButton-font-weight: medium;
@@ -18,12 +18,12 @@
   --filterButton-fontSize: 20px;
   --filterButton-font-weight: medium;
   --editButton-familyFont: sen;
-  --editButton-fontSize: 14px;
+  --editButton-fontSize: 18px;
   --editButton-font-weight: medium;
   --deleteButton-familyFont: sen;
   --deleteButton-fontSize: 14px;
   --deleteButton-font-weight: medium;
-  --border-radius-buttons: 10px;
+  --border-radius-buttons: 30px;
   --padding-buttons: 10px;
   --font-size-buttons: 14px;
   --cursor-buttons: pointer;
