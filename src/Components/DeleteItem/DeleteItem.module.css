@@ -77,53 +77,78 @@
 .deleteButton{
   width: 160px;
   height: 80px;
+  background-color: var(--primary-color);
   font-family: var(--deleteButton-familyFont);
   font-weight: var(--deleteButton-font-weight);
   font-size: 32px;
+  border-radius: var(--border-radius-buttons);
+  border-style: none;
+  color: var(--background-color);
 }
 
 .deleteButton:last-child{
   background-color: var(--secondary-color);
 }
 
-@media screen and (max-width: 600px) {
+@media (max-width: 768px) {
   .deleteItemModal {
+    padding: 40px 60px;
+    font-size: 18px;
     width: 90%;
-    padding: 25px;
-    gap: 15px;
+  }
+
+  .textLogo {
+    font-size: 50px;
+  }
+
+  .textLogo span {
+    font-size: 50px;
+  }
+
+  .deleteItemModal p {
+    font-size: 24px;
   }
 
   .deleteButtons {
-    flex-direction: column; 
+    flex-direction: column;
     gap: 15px;
   }
-}
 
-.deleteButton {
-  padding: 0.5rem 1.5rem;
-  border-radius: 2rem;
-  background-color: var(--primary-color);
-  color: #FFF;
-  font-family: Inter, sans-serif;
-  border: none;
-  cursor: pointer;
-}
-
-.deleteButtons {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 20px;
-}
-
-@media screen and (max-width: 600px) {
-  .deleteItemModal {
-    width: 90%;
-    padding: 15px;
-  }
-  
   .deleteButton {
-    padding: 0.4rem 1.2rem;
-    font-size: 0.9rem;
+    width: 100%;
+    height: 60px;
+    font-size: 24px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .deleteItemModal {
+    padding: 30px;
+    font-size: 16px;
+    width: 95%;
+  }
+
+  .textLogo {
+    font-size: 40px;
+  }
+
+  .textLogo span {
+    font-size: 40px;
+  }
+
+  .deleteItemModal p {
+    font-size: 20px;
+  }
+
+  .deleteButtons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .deleteButton {
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
   }
 }
