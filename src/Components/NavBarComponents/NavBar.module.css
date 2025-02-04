@@ -1,8 +1,14 @@
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 1px 2px -2px #14365D;
+    z-index: 1000;  /* Ensures the navbar is always on top */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 5%;
+    padding: 15px 5%;
     background-color: #FFFFFF;
     border-bottom: 1px solid #ddd;
     flex-wrap: nowrap;
@@ -41,6 +47,7 @@
 
 .searchButton {
     background-color: #14365D;
+    font-family: "Sen", serif;
     color: white;
     border: none;
     padding: 8px 12px;
@@ -53,11 +60,12 @@
 
 .navButtons {
     display: flex;
-    gap: 10px;
+    gap: 15px;
 }
 
 .navButtons button {
     background-color: #14365D;
+    font-family: "Sen", serif;
     color: white;
     padding: 8px 15px;
     border: none;

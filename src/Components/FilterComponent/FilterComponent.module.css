@@ -5,10 +5,13 @@
     margin-top: 16px;
     gap: 40px;
     flex-wrap: wrap;
+    margin-top: 100px;  
+      
 }
 
 .filterInput {
     margin-right: 10px;
+    font-family: 'Inter', sans-serif;
     padding: 5px;
     font-size: 16px;
     width: fit-content;
@@ -20,6 +23,7 @@
 
 .filterInput option{
     color: var(--primary-color);
+    font-family: 'Inter', sans-serif;
 }
 
 /* Responsive Design */
