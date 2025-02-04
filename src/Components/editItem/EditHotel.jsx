@@ -85,10 +85,9 @@ export const EditHotel = ({ hotel, onSave, onCancel }) => {
                     />
                 </label>
 
-                {/* Buttons for saving changes or canceling */}
                 <div className={styles.buttons}>
-                    <button type="submit">Save</button>  {/* Submit form to save changes */}
-                    <button type="button" onClick={onCancel}>Cancel</button>  {/* Button to cancel and close the form */}
+                    <button type="submit">Save</button> 
+                    <button type="button" onClick={onCancel}>Cancel</button> 
                 </div>
             </form>
             </div>

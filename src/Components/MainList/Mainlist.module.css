@@ -43,6 +43,10 @@
   color: var(--secondary-color);
   text-align: center;
   margin-bottom: 12px;
+  margin-top: 100px;        
+}
+.noData {
+  color: var(--secondary-color);
 }
 
 .hotelDescription p {

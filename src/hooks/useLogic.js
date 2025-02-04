@@ -12,7 +12,6 @@ export const useLogic = () => {
     const [locations, setLocations] = useState([]);  // List of unique locations
     const [categories, setCategories] = useState([]);  // List of unique hotel categories
     const [isLoading, setIsLoading] = useState(false);  // Loading state for data fetching
-
     const [query, setQuery] = useState('');
     const [noResults, setNoResults] = useState(false); // Track whether there are no results
 
@@ -66,7 +65,6 @@ export const useLogic = () => {
                 return;
             }
         }
-
         // Fetch new data if stored data is old or doesn't exist
         fetchAndStoreHotels();
     }, [fetchAndStoreHotels]);

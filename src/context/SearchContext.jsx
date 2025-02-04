@@ -1,9 +1,8 @@
 import React, { createContext, useContext } from 'react';
 
-// Create the context
+// useContext is used to avoid prop drilling in the search component
 export const SearchContext = createContext();
 
-// Create a provider component
 export const SearchProvider = ({ children, searchSubmit }) => {
   return (
     <SearchContext.Provider value={searchSubmit}>
@@ -12,7 +11,6 @@ export const SearchProvider = ({ children, searchSubmit }) => {
   );
 };
 
-// Custom hook to use the search context
 export const useSearch = () => {
     const context = useContext(SearchContext);
     if (context === undefined) {

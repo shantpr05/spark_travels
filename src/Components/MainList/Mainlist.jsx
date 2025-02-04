@@ -1,11 +1,12 @@
 import { useState, useCallback, useEffect } from "react";
 import styles from './Mainlist.module.css';
 import { DeleteItem } from "../DeleteItem/DeleteItem";
-import hotel from './imagemain.png';  // Default image for hotel
+import hotel from './imagemain.png';  
 import { EditHotel } from "../editItem/EditHotel";
-import { FaMapMarkerAlt, FaCity, FaPhoneAlt, FaGlobe } from "react-icons/fa";
+import { FaMapMarkerAlt, FaCity, FaPhoneAlt, FaGlobe, FaInternetExplorer } from "react-icons/fa";
+import FilterComponent from '../FilterComponent/FilterComponent';
 
-export const Mainlist = ({hotels, setHotels}) => {
+export const Mainlist = ({hotels, setHotels,locations, locationFilter, setLocationFilter, categories, categoryFilter, setCategoryFilter}) => {
     // States to manage modal visibility and hotel data
     const [isOpenDelete, setIsOpenDelete] = useState(false);
     const [isOpenEdit, setIsOpenEdit] = useState(false);
@@ -52,6 +53,14 @@ export const Mainlist = ({hotels, setHotels}) => {
     return (
         <>
         <h1 className={styles.hotelName}>MY HOTEL LIST</h1>
+            <FilterComponent 
+                locations={locations} 
+                locationFilter={locationFilter} 
+                setLocationFilter={setLocationFilter} 
+                categories={categories} 
+                categoryFilter={categoryFilter} 
+                setCategoryFilter={setCategoryFilter} 
+            />
             <div>
                 {noResults ? (
                     // Show this message if there are no hotels to display
@@ -60,22 +69,6 @@ export const Mainlist = ({hotels, setHotels}) => {
                     <ul className={styles.main}>
                         {hotels?.slice(0, visibleHotels).map((item) => (
                             <li key={item.properties.place_id} className={styles.item}>
-                                {/* Image of hotel location */}
-                                {/* {item?.geometry?.coordinates ? 
-                                    <img 
-                                        src={`https://maps.geoapify.com/v1/staticmap?style=osm-bright&width=200&height=100&center=lonlat:${item.geometry.coordinates[0]},${item.geometry.coordinates[1]}&zoom=14&apiKey=7e2095ee83924cbf9b1d99db359cfd5d`}
-                                        alt="Hotel Location Map"
-                                        className={styles.hotelImage}
-                                        loading="lazy"
-                                    />
-                                    : 
-                                    <img 
-                                        src={hotel}  // Default hotel image if no coordinates are found
-                                        alt="Default hotel"
-                                        className={styles.hotelImage}
-                                        loading="lazy"
-                                    />
-                                } */}
                             <img 
                                 src={hotel}  
                                 alt=""
@@ -85,9 +78,10 @@ export const Mainlist = ({hotels, setHotels}) => {
                             />
                                 <div className={styles.hotelDescription}>
                                     <h2 className={styles.hotelName}> {item.properties.name}</h2>
-                                    <p><FaMapMarkerAlt /> {item.properties.address_line2}</p>
+                                    <p><FaMapMarkerAlt /> {item.properties.address_line2 ? item.properties.address_line2 : <span className={styles.noData}> No data </span>}</p>
                                     <p><FaCity /> {item.properties.city}</p>
                                     <p><FaPhoneAlt /> {item.properties.contact?.phone}</p>
+                                    <p><FaInternetExplorer /> {item.properties?.website ? item.properties?.website :<span className={styles.noData}> No data </span>} </p>
                                 </div>
                                 <div className={styles.hotelButtons} role="group" aria-label={`Actions for ${item.properties.name}`}> 
                                     <button 

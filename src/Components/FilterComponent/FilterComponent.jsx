@@ -1,4 +1,3 @@
-
 import styles from './FilterComponent.module.css';
 
 const FilterComponent = ({

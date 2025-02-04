@@ -5,13 +5,12 @@ import styles from './AddNewHotel.module.css';
 
 const AddNewHotel = ({ addHotel }) => {
     const navigate = useNavigate();
-    const [isSubmitted, setIsSubmitted] = useState(false); // State to track form submission
+    const [isSubmitted, setIsSubmitted] = useState(false);
     const [newHotel, setNewHotel] = useState({
         name: '',
         address_line2: '',
         city: '',
         phone: '',
-        website: '',
     });
 
     const handleChange = (e) => {
@@ -32,11 +31,9 @@ const AddNewHotel = ({ addHotel }) => {
                 address_line2: newHotel.address_line2,
                 categories: ["accommodation", "accommodation.hotel"],
                 city: newHotel.city,
-                website: newHotel.website,
                 contact: { phone: newHotel.phone }
             }
         };
-
         addHotel(newMappedHotel);
         setIsSubmitted(true); // Hide the form and show the success message
 
@@ -98,16 +95,7 @@ const AddNewHotel = ({ addHotel }) => {
                                 required
                             />
                         </div>
-                        <div className={styles.inputGroup}>
-                            <label htmlFor="website">Website</label>
-                            <input
-                                type="url"
-                                id="website"
-                                name="website"
-                                value={newHotel.website}
-                                onChange={handleChange}
-                            />
-                        </div>
+
                         <button form='save' type="submit" className={styles.submitButton}>Add Hotel</button>
                     </form>
                 </>
