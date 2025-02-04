@@ -14,8 +14,7 @@ export const DeleteItem =({onDelete, onLeave}) => {
             role="dialog" 
         >
             <div className={styles.deleteItemModal}>
-                {/* Displaying the logo of the app */}
-                <img src={logo} width='200px' alt='logo Spark Travel'/>
+                <h1 className={styles.textLogo}> <span>SPARK</span> Stay</h1>
 
                 {/* Display trashbin icon as an indicator of deletion action */}
                 <img src={trashbin} width='80px' alt='trashbin pictogram'/>
