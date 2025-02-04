@@ -1,22 +1,9 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';  // Import for routing if you're using React Router
+import Search from './Search'
 import styles from './NavBar.module.css';
 import logo from '../../assets/logo.png';
 
-const Navbar = ({searchSubmit}) => {
-    const [searchQuery, setSearchQuery] = useState('');  
-
-    // Handles changes in the search input field
-    const handleSearchChange = (e) => {
-        setSearchQuery(e.target.value);   
-    };
-
-    // Handles the submission of the search form
-    const handleSearchSubmit = (e) => {
-        e.preventDefault();    
-        searchSubmit(searchQuery)   
-    };
-
+const Navbar = () => {
     const navigate = useNavigate();  // Hook for navigating between pages
 
     const handleLogoClick = () => {
@@ -45,16 +32,7 @@ const Navbar = ({searchSubmit}) => {
             </div>
             
             {/* Search form */}
-            <form className={styles.searchForm} onSubmit={handleSearchSubmit}>
-                <input 
-                    type="text"
-                    placeholder="Search for hotels..."
-                    value={searchQuery}  
-                    onChange={handleSearchChange}  
-                    className={styles.searchInput}
-                />
-                <button type="submit" className={styles.searchButton}>Search</button>
-            </form>
+            <Search />
             
             {/* Navigation buttons */}
             <div className={styles.navButtons}>

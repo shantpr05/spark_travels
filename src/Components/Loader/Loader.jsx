@@ -1,12 +1,19 @@
-import React from 'react';
+import {useEffect} from 'react';
 import styles from './Loader.module.css';
 
-// Loader component displays a loading spinner while data is being fetched or processed.
-const Loader = () => (
-  <div className={styles.loaderContainer}>
-    {/* The loader div contains the spinning animation */}
-    <div className={styles.loader}></div>
-  </div>
-);
+const Loader = () => {
+  useEffect(() => {
+    document.title = 'Loading...';
+    return () => {
+      document.title = 'Spark Stay'; 
+    };
+  }, []);
+
+  return (
+    <div className={styles.loaderContainer}>
+      <div className={styles.loader}></div>
+    </div>
+  )
+}
 
 export default Loader;

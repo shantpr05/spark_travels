@@ -60,55 +60,74 @@ export const Mainlist = ({hotels, setHotels}) => {
                         {hotels?.slice(0, visibleHotels).map((item) => (
                             <li key={item.properties.place_id} className={styles.item}>
                                 {/* Image of hotel location */}
-                                {item?.geometry?.coordinates ? 
-                                <img 
-                                    src={`https://maps.geoapify.com/v1/staticmap?style=osm-bright&width=200&height=100&center=lonlat:${item.geometry.coordinates[0]},${item.geometry.coordinates[1]}&zoom=14&apiKey=7e2095ee83924cbf9b1d99db359cfd5d`}
-                                    alt="Hotel Location Map"
-                                    className={styles.hotelImage}
-                                    loading="lazy"
-                                />
-                                : 
-                                <img 
-                                    src={hotel}  // Default hotel image if no coordinates are found
-                                    alt="Default hotel"
-                                    className={styles.hotelImage}
-                                    loading="lazy"
-                                />
-                                }
+                                {/* {item?.geometry?.coordinates ? 
+                                    <img 
+                                        src={`https://maps.geoapify.com/v1/staticmap?style=osm-bright&width=200&height=100&center=lonlat:${item.geometry.coordinates[0]},${item.geometry.coordinates[1]}&zoom=14&apiKey=7e2095ee83924cbf9b1d99db359cfd5d`}
+                                        alt="Hotel Location Map"
+                                        className={styles.hotelImage}
+                                        loading="lazy"
+                                    />
+                                    : 
+                                    <img 
+                                        src={hotel}  // Default hotel image if no coordinates are found
+                                        alt="Default hotel"
+                                        className={styles.hotelImage}
+                                        loading="lazy"
+                                    />
+                                } */}
+                            <img 
+                                src={hotel}  
+                                alt=""
+                                className={styles.hotelImage}
+                                loading="lazy"
+                                aria-hidden="true"
+                            />
                                 <div className={styles.hotelDescription}>
                                     <h2 className={styles.hotelName}> {item.properties.name}</h2>
                                     <p><FaMapMarkerAlt /> {item.properties.address_line2}</p>
                                     <p><FaCity /> {item.properties.city}</p>
                                     <p><FaPhoneAlt /> {item.properties.contact?.phone}</p>
                                 </div>
-                                <div className={styles.hotelButtons}> 
-                                    {/* Edit button to open edit modal */}
-                                    <button className={styles.hotelButton} onClick={() => {
-                                        setIsOpenEdit(true);
-                                        setEditHotel(item);   // Set the hotel being edited
-                                    }}>Edit</button>
-                                    {/* Delete button to open delete confirmation modal */}
-                                    <button className={styles.hotelButton} onClick={() => {
-                                        setIsOpenDelete(true);
-                                        setDeletedItemId(item.properties.place_id);  // Set the hotel ID to be deleted
-                                    }}>Delete</button>
+                                <div className={styles.hotelButtons} role="group" aria-label={`Actions for ${item.properties.name}`}> 
+                                    <button 
+                                        className={styles.hotelButton} 
+                                        onClick={() => {
+                                            setIsOpenEdit(true);
+                                            setEditHotel(item);   
+                                        }} 
+                                        aria-label={`Edit ${item.properties.name}`}
+                                    >
+                                    Edit</button>
+                                    <button 
+                                        className={styles.hotelButton} 
+                                        onClick={() => {
+                                            setIsOpenDelete(true);
+                                            setDeletedItemId(item.properties.place_id);  
+                                        }} 
+                                        aria-label={`Delete ${item.properties.name}`}
+                                    >
+                                    Delete
+                                    </button>
                                 </div>
                             </li>
                         ))}
                     </ul>
                 )}
                 {visibleHotels < hotels?.length && (
-                    <button onClick={loadMore} className={styles.seeMoreButton}>
-                        See More
+                    <button 
+                        onClick={loadMore} 
+                        className={styles.seeMoreButton}
+                        aria-label={`Load ${Math.min(9, hotels.length - visibleHotels)} more hotels`}
+                    > 
+                    See More
                     </button>
                 )}
             </div>
             {isOpenEdit && <EditHotel 
-                onCancel={() => setIsOpenEdit(false)}  // Close the edit modal on cancel
-                onSave={handleSave}   // Save the updated hotel data
+                onCancel={() => setIsOpenEdit(false)} 
+                onSave={handleSave}   
                 hotel={editHotel}   
             />}
-            {/* Delete hotel confirmation modal */}
             {isOpenDelete && <DeleteItem onLeave={() => setIsOpenDelete(false)} onDelete={() => onRemove(deletedItemId)} />}
         </>
     );

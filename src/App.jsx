@@ -6,6 +6,7 @@ import { useLogic } from './hooks/useLogic';
 import Navbar from './Components/NavBarComponents/NavBar';
 import AddNewHotel from './Components/NavBarComponents/AddNewHotel';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {SearchProvider} from './context/SearchContext'
 
 const App = () => {
   
@@ -24,15 +25,18 @@ const App = () => {
   } = useLogic();
   
 
+
+
   return (
     <Router>
       <div>
         <header>
-          <Navbar 
-            hotels={filteredHotels} 
-            setHotels={setHotels}  
-            searchSubmit={searchSubmit}
-          />
+          <SearchProvider searchSubmit={searchSubmit}>
+            <Navbar 
+              hotels={filteredHotels} 
+              setHotels={setHotels}  
+            />
+          </SearchProvider>
         </header>
         <main>
           {/* Add FilterComponent above Mainlist so filtering applies correctly */}
