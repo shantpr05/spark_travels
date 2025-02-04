@@ -3,23 +3,27 @@ import styles from './EditHotel.module.css';
 import bg from './bg.png';
 
 export const EditHotel = ({ hotel, onSave, onCancel }) => {
+    // Initialize formData state with the current hotel properties
     const [formData, setFormData] = useState({ ...hotel.properties });
 
+    // Handle input changes and update formData state
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        const { name, value } = e.target;  // Get the name and value of the changed input
         setFormData((prevData) => ({
-            ...prevData,
-            [name]: value,
+            ...prevData,   // Preserve previous formData
+            [name]: value,  // Update the specific field with the new value
         }));
     };
 
+    // Handle form submission
     const handleSubmit = (e) => {
-        e.preventDefault();
-        onSave({ ...hotel, properties: { ...formData } });
+        e.preventDefault();   // Prevent page reload on form submission
+        onSave({ ...hotel, properties: { ...formData } });   // Pass updated hotel data back to the parent component
     };
 
     return (
         <div className={styles.editHotelWrapper}>
+            {/* Background image section */}
             <div className={styles.imageContainer}>
                 <img 
                     src={bg} 
@@ -28,15 +32,18 @@ export const EditHotel = ({ hotel, onSave, onCancel }) => {
                 />
             </div>
 
+            {/* Hotel edit form */}
             <form className={styles.editHotelForm} onSubmit={handleSubmit}>
                 <h2>Edit Hotel</h2>
+
+                {/* Input fields for editing hotel details */}
                 <label>
                     Name:
                     <input
                         type="text"
                         name="name"
-                        value={formData.name || ""}
-                        onChange={handleChange}
+                        value={formData.name || ""}  // Pre-fill with existing data or empty string
+                        onChange={handleChange}  // Update state when input changes
                     />
                 </label>
                 <label>
@@ -44,7 +51,7 @@ export const EditHotel = ({ hotel, onSave, onCancel }) => {
                     <input
                         type="email"
                         name="email"
-                        value={formData.contact?.email || ""}
+                        value={formData.contact?.email || ""}   // Optional chaining to handle undefined values
                         onChange={handleChange}
                     />
                 </label>
@@ -84,9 +91,11 @@ export const EditHotel = ({ hotel, onSave, onCancel }) => {
                         onChange={handleChange}
                     />
                 </label>
+
+                {/* Buttons for saving changes or canceling */}
                 <div className={styles.buttons}>
-                    <button type="submit">Save</button>
-                    <button type="button" onClick={onCancel}>Cancel</button>
+                    <button type="submit">Save</button>  {/* Submit form to save changes */}
+                    <button type="button" onClick={onCancel}>Cancel</button>  {/* Button to cancel and close the form */}
                 </div>
             </form>
         </div>

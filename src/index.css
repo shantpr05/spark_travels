@@ -37,7 +37,8 @@
 
 body {
   font-family: 'Inter', sans-serif, 'Sen', sans-serif;
-  
+  margin-top: 60px;  /* Adjust based on your navbar height */
+    
 }
 
 button {
