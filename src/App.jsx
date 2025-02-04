@@ -22,6 +22,7 @@ const App = () => {
     searchSubmit,
     addHotel
   } = useLogic();
+  
 
   return (
     <Router>
