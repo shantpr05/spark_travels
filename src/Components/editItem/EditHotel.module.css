@@ -88,8 +88,87 @@
     font-weight: var(--addButton-font-weight);
 }
 
-
 .editHotelForm button[type="button"] {
     background: var(--secondary-color);
 }
 
+@media (max-width: 1024px) {
+    .contentBox {
+        width: 90%;
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .hotelImage {
+        display: none;
+    }
+
+    .editHotelForm {
+        height: auto;
+        border-radius: 0 0 10px 10px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contentBox {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .hotelImage {
+        display: none;
+    }
+
+    .editHotelForm h2 {
+        font-size: 20px;
+    }
+
+    .editHotelForm input {
+        padding: 10px;
+    }
+
+    .editHotelForm .buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .editHotelForm button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .contentBox {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .hotelImage {
+        display: none;
+    }
+
+    .editHotelForm h2 {
+        font-size: 18px;
+    }
+
+    .editHotelForm label {
+        font-size: 14px;
+    }
+
+    .editHotelForm input {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .editHotelForm .buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .editHotelForm button {
+        width: 100%;
+        font-size: 16px;
+        padding: 10px;
+    }
+}
