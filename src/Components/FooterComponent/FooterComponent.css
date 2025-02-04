@@ -12,6 +12,10 @@
 
 .footer-left {
   flex: 1;
+  color: var(--primary-color);
+  font-size: var(--p-size);
+  font-family: var(--p-familyFont), sans-serif;
+  font-size: var(--p-size);
 }
 
 .footer-left h2 {
@@ -46,13 +50,20 @@
 }
 
 .footer-right {
-  text-align: right;
+  text-align: left;
   flex: 1;
+  color: var(--primary-color);
+  font-size: var(--p-size);
+  font-family: var(--p-familyFont), sans-serif;
+  font-size: var(--p-size);
 }
 
-.footer-right .rights {
-  color: #888;
-  font-size: 12px;
+.footer-right .term{
+  margin: 10px 10px 0 0 ;
+}
+
+.footer-right .terms{
+  margin: 0 10px;
 }
 
 .footer-right a {

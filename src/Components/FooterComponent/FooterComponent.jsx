@@ -34,12 +34,13 @@ const FooterComponent = () => {
       {/* Right section of the footer containing copyright and links */}
       <div className="footer-right">
         <p>Copyright © 2025</p>
-        <p>
-          All Rights Reserved |
+        <p className="term">
+          All Rights Reserved |  
           <a
             href="/assets/termsAndConditions.html"
             target="_blank"
             rel="noopener noreferrer"
+            className="terms"
           >
             Terms and Conditions
           </a>
@@ -48,6 +49,7 @@ const FooterComponent = () => {
             href="/assets/privacyPolicy.html"
             target="_blank"
             rel="noopener noreferrer"
+            className="terms"
           >
             Privacy Policy
           </a>
