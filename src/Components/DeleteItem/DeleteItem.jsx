@@ -13,15 +13,15 @@ export const DeleteItem =({onDelete, onLeave}) => {
         <div className={styles.deleteItemWrapper}>
             <div className={styles.deleteItemModal}>
                 {/* Displaying the logo of the app */}
-                <img src={logo} width='200px' alt='logo Spark Travel'/>
+                <h1 className={styles.textLogo}><span>SPARK</span> Stay</h1>
 
                 {/* Display trashbin icon as an indicator of deletion action */}
-                <img src={trashbin} width='80px' alt='trashbin pictogram'/>
+                <img src={trashbin} width='100px' alt='trashbin pictogram'/>
 
                 {/* Confirmation message asking if the user is sure about deletion */}
                 <p>Are you sure do you want to delete the hotel from list?</p>
 
-                <div className={styles.deleteButtons}>                    
+                <div className={styles.deleteButtons}>             
                     {/* Button to confirm deletion */}
                     <button className={styles.deleteButton} onClick={onYes}>Yes</button>
 

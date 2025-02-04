@@ -46,6 +46,7 @@ export const Mainlist = ({hotels, setHotels}) => {
 
     return (
         <>
+        <h1>My Hotel List</h1>
             <div>
                 <ul className={styles.main}>
                     {hotels?.slice(0, visibleHotels).map((item) => (
