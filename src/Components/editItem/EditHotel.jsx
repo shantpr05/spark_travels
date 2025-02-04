@@ -23,6 +23,7 @@ export const EditHotel = ({ hotel, onSave, onCancel }) => {
 
     return (
         <div className={styles.editHotelWrapper}>
+            <div className={styles.contentBox}>
             {/* Background image section */}
             <div className={styles.imageContainer}>
                 <img 
@@ -98,6 +99,7 @@ export const EditHotel = ({ hotel, onSave, onCancel }) => {
                     <button type="button" onClick={onCancel}>Cancel</button>  {/* Button to cancel and close the form */}
                 </div>
             </form>
+            </div>
         </div>
     );
 };

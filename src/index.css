@@ -2,7 +2,7 @@
   --primary-color: #14365D;
   --secondary-color: #F2672B;
   --background-color: #FFFFFF;
-  --cardFramework-color: #14365D33;  /*this code includes a transparency; don't change it*/
+  --cardFramework-color: rgba(20, 54, 93, 0.2);  /*this code includes a transparency; don't change it*/
   --searchBoxFill-color: #14365D0D;  /*this code includes a transparency; don't change it*/
   --h1-familyFont: inter;
   --h1-font-weight: bold;
