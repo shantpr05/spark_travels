@@ -34,7 +34,6 @@ const FilterComponent = ({
                     <option key={index} value={category}>{category}</option>
                 ))}
             </select>
-
         </div>
     );
 };
