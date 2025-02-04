@@ -53,7 +53,7 @@ const AddNewHotel = ({ addHotel }) => {
                 <p className={styles.successMessage}>Successfully added hotel!</p>
             ) : (
                 <>
-                    <h2>Add New Hotel</h2>
+                    <h2>Register Hotel</h2>
                     <form id='save' onSubmit={handleSubmit} className={styles.form}>
                         <div className={styles.inputGroup}>
                             <label htmlFor="name">Hotel Name</label>

@@ -51,7 +51,7 @@ export const Mainlist = ({hotels, setHotels}) => {
 
     return (
         <>
-        <h1>My Hotel List</h1>
+        <h1 className={styles.hotelName}>MY HOTEL LIST</h1>
             <div>
                 {noResults ? (
                     // Show this message if there are no hotels to display

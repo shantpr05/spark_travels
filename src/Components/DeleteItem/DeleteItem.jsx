@@ -1,5 +1,4 @@
 import trashbin from './trashbin.png';
-import logo from '../../assets/logo.png';
 import styles from './DeleteItem.module.css';
 
 export const DeleteItem =({onDelete, onLeave}) => {

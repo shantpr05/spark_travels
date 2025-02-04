@@ -39,9 +39,9 @@
 
 .hotelName {
   font-family: var(--h2-familyFont);
-  font-weight: var(--h2-font-weight);
-  color: var(--primary-color);
-  text-align: left;
+  font-weight: var(--h1-font-weight);
+  color: var(--secondary-color);
+  text-align: center;
   margin-bottom: 12px;
 }
 
