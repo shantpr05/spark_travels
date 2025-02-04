@@ -67,13 +67,17 @@
   font-size: var(--editButton-fontSize);
   font-weight: var(--editButton-font-weight);
   cursor: var(--cursor-buttons);
-  transition: background-color 0.2s, transform 0.1s;
 }
 
 .hotelButton:first-child {
   background-color: var(--primary-color);
   color: var(--background-color);
-  /*border: 1px solid var(--primary-color);*/
+}
+
+.hotelButton:first-child:hover{
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  border: 0.7px solid var(--primary-color);
 }
 
 .hotelButton:last-child {
@@ -82,8 +86,10 @@
   border: 1px solid var(--secondary-color);
 }
 
-.hotelButton:active {
-  transform: translateY(0);
+.hotelButton:last-child:hover{
+  background-color: var(--background-color);
+  color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
 }
 
 .seeMoreButton {
