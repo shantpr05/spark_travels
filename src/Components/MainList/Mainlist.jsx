@@ -3,7 +3,7 @@ import styles from './Mainlist.module.css';
 import { DeleteItem } from "../DeleteItem/DeleteItem";
 import hotel from './imagemain.png';  // Default image for hotel
 import { EditHotel } from "../editItem/EditHotel";
-import { FaMapMarkerAlt, FaCity, FaPhoneAlt } from "react-icons/fa";
+import { FaMapMarkerAlt, FaCity, FaPhoneAlt, FaGlobe } from "react-icons/fa";
 
 export const Mainlist = ({hotels, setHotels}) => {
     // States to manage modal visibility and hotel data

@@ -59,7 +59,8 @@ export const EditHotel = ({ hotel, onSave, onCancel }) => {
                 <label>
                     Phone No:
                     <input
-                        type="text"
+                        type="tel"
+                        pattern= "+[0-9]{16}"
                         name="phone"
                         value={formData.contact?.phone || ""}
                         onChange={handleChange}
@@ -80,15 +81,6 @@ export const EditHotel = ({ hotel, onSave, onCancel }) => {
                         type="url"
                         name="website"
                         value={formData.website || ""}
-                        onChange={handleChange}
-                    />
-                </label>
-                <label>
-                    Wifi Access:
-                    <input
-                        type="text"
-                        name="wifi"
-                        value={formData.wifi || ""}
                         onChange={handleChange}
                     />
                 </label>
