@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import styles from './Mainlist.module.css';
 import { DeleteItem } from "../DeleteItem/DeleteItem";
-import hotel from './hotel.png';  // Default image for hotel
+import hotel from './imagemain.png';  // Default image for hotel
 import { EditHotel } from "../editItem/EditHotel";
 import { FaMapMarkerAlt, FaCity, FaPhoneAlt } from "react-icons/fa";
 
@@ -50,22 +50,27 @@ export const Mainlist = ({hotels, setHotels}) => {
                 <ul className={styles.main}>
                     {hotels?.slice(0, visibleHotels).map((item) => (
                         <li key={item.properties.place_id} className={styles.item}>
-                            {/* Image of hotel location */}
-                            {item?.geometry?.coordinates ? 
+                            {/* {item?.geometry?.coordinates ?
+                                <img 
+                                    src={`https://maps.geoapify.com/v1/staticmap?style=osm-bright&width=200&height=100&center=lonlat:${item.geometry.coordinates[0]},${item.geometry.coordinates[1]}&zoom=14&apiKey=7e2095ee83924cbf9b1d99db359cfd5d`}
+                                    alt="Hotel Location Map"
+                                    className={styles.hotelImage}
+                                    loading="lazy"
+                                />
+                                : 
+                                <img 
+                                    src={hotel}  // Default hotel image if no coordinates are found
+                                    alt="Default hotel"
+                                    className={styles.hotelImage}
+                                    loading="lazy"
+                                />
+                            } */}
                             <img 
-                                src={`https://maps.geoapify.com/v1/staticmap?style=osm-bright&width=200&height=100&center=lonlat:${item.geometry.coordinates[0]},${item.geometry.coordinates[1]}&zoom=14&apiKey=7e2095ee83924cbf9b1d99db359cfd5d`}
-                                alt="Hotel Location Map"
-                                className={styles.hotelImage}
-                                loading="lazy"
-                            />
-                            : 
-                            <img 
-                                src={hotel}  // Default hotel image if no coordinates are found
+                                src={hotel}  
                                 alt="Default hotel"
                                 className={styles.hotelImage}
                                 loading="lazy"
                             />
-                            }
                             <div className={styles.hotelDescription}>
                                 <h2 className={styles.hotelName}> {item.properties.name}</h2>
                                 <p><FaMapMarkerAlt /> {item.properties.address_line2}</p>
