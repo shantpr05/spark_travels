@@ -3,7 +3,7 @@ import styles from './Mainlist.module.css';
 import { DeleteItem } from "../DeleteItem/DeleteItem";
 import hotel from './imagemain.png';  
 import { EditHotel } from "../editItem/EditHotel";
-import { FaMapMarkerAlt, FaCity, FaPhoneAlt, FaInternetExplorer } from "react-icons/fa";
+import { FaMapMarkerAlt, FaCity, FaPhoneAlt, FaGlobe, FaInternetExplorer } from "react-icons/fa";
 import FilterComponent from '../FilterComponent/FilterComponent';
 
 export const Mainlist = ({hotels, setHotels,locations, locationFilter, setLocationFilter, categories, categoryFilter, setCategoryFilter}) => {
