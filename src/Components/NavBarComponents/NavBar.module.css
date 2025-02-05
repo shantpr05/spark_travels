@@ -160,15 +160,17 @@
     .searchButton {
         width: 90px;
         font-size: 14px;
+        height: 40px;
     }
 
     .navButtons {
         gap: 8px;
-        margin: 8px;
+        margin-top: 8px;
     }
 
     .navButtons button {
         height: 40px;
         font-size: 14px;
-    }
+
+    }   
 }
