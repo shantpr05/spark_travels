@@ -50,7 +50,7 @@ export const Mainlist = ({hotels, setHotels,locations, locationFilter, setLocati
 
     return (
         <>
-        <h1 className={styles.hotelName}>MY HOTEL LIST</h1>
+        <h1 className={styles.pageName}>MY HOTEL LIST</h1>
             <FilterComponent 
                 locations={locations} 
                 locationFilter={locationFilter} 
