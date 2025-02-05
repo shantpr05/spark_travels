@@ -53,6 +53,7 @@
 .footer-right {
   text-align: left;
   flex: 1;
+  margin-left: 80px;
   color: var(--primary-color);
   font-size: var(--p-size);
   font-family: var(--p-familyFont), sans-serif;
