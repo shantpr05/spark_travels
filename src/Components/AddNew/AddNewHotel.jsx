@@ -99,6 +99,13 @@ const AddNewHotel = ({ addHotel }) => {
                                 value={newHotel.phone}
                                 onChange={handleChange}
                                 required
+                                pattern="[0-9]{10}" // Ensures only 10-digit numbers are allowed
+                                title="Phone number must be 10 digits long"
+                                onKeyPress={(e) => {
+                                    if (!/[0-9]/.test(e.key)) {
+                                        e.preventDefault(); // Prevents entering non-numeric characters
+                                    }
+                                }}
                             />
                         </div>
                         <div className={styles.inputGroup}>
