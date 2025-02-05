@@ -12,6 +12,7 @@ const Navbar = () => {
 
     const handleHomeClick = () => {
         navigate('/');  
+        window.location.reload();  // Refresh the page
     };
 
     const handleAddNewClick = () => {
