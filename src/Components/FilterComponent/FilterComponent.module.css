@@ -18,12 +18,6 @@
     border-radius: 12px;
     border-color: var(--primary-color);
 }
-/* Improve focus effect for better UI feedback */
-.filterInput:focus {
-    outline: none;
-    border-color: #0f2a47; /* Slightly darker shade for better visibility */
-    box-shadow: 0px 0px 8px rgba(15, 42, 71, 0.3);
-}
 
 .filterInput option{
     color: var(--primary-color);

@@ -8,13 +8,20 @@ import {
 } from "react-icons/fa";
 import logo from "../../assets/logo.png";
 import "./FooterComponent.css";
+import { useNavigate } from 'react-router-dom';  
 
 const FooterComponent = () => {
+
+  const navigate = useNavigate();
+
+  const handleLogoClick = () => {
+    navigate('/');  
+  };
+
   return (
     <footer className="footer">
-      {/* Left section of the footer containing logo and description */}
       <div className="footer-left">
-        <div className="footer-logo">
+        <div className="footer-logo" onClick={handleLogoClick}>
           {" "}
           <img src={logo} alt="Logo" width="150" height="auto" />
         </div>
@@ -30,8 +37,7 @@ const FooterComponent = () => {
           <FaYoutube />
         </div>
       </div>
-
-      {/* Right section of the footer containing copyright and links */}
+      
       <div className="footer-right">
         <p>Copyright © 2025</p>
         <p className="term">

@@ -15,10 +15,10 @@
 }
 
 .logo {
-    width: 150px;  /* Set a default width */
-    height: auto;  /* Maintain aspect ratio */
+    width: 150px; 
+    height: auto;  
     object-fit: contain;  
-    /*cursor: pointer;  Add pointer cursor for clickable logos */
+    cursor: pointer;
 }
 
 .searchForm {
@@ -78,7 +78,6 @@
     background-color: #0F2B47;
 }
 
-/* RESPONSIVE DESIGN */
 @media screen and (max-width: 768px) {
     .navbar {
         flex-direction: column;
@@ -87,7 +86,7 @@
     }
 
     .logo {
-        width: 120px;  /* Adjust for smaller screens */
+        width: 120px;
     }
 
     .searchForm {
@@ -116,6 +115,6 @@
 @media screen and (max-width: 480px) {
 
     .logo {
-        width: 100px;  /* Reduce size further on very small screens */
+        width: 100px;  
     }
 }

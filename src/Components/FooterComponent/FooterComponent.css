@@ -8,6 +8,7 @@
   font-family: var(--p-familyFont), sans-serif;
   font-size: var(--p-size);
   border-top: 1px solid #ddd;
+  flex: 1;
 }
 
 .footer-left {

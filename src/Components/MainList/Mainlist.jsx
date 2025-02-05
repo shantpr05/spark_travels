@@ -3,19 +3,19 @@ import styles from './Mainlist.module.css';
 import { DeleteItem } from "../DeleteItem/DeleteItem";
 import hotel from './imagemain.png';  
 import { EditHotel } from "../editItem/EditHotel";
-import { FaMapMarkerAlt, FaCity, FaPhoneAlt, FaGlobe, FaInternetExplorer } from "react-icons/fa";
+import { FaMapMarkerAlt, FaCity, FaPhoneAlt, FaInternetExplorer } from "react-icons/fa";
 import FilterComponent from '../FilterComponent/FilterComponent';
 
 export const Mainlist = ({hotels, setHotels,locations, locationFilter, setLocationFilter, categories, categoryFilter, setCategoryFilter}) => {
-    // States to manage modal visibility and hotel data
+    
     const [isOpenDelete, setIsOpenDelete] = useState(false);
     const [isOpenEdit, setIsOpenEdit] = useState(false);
     const [editHotel, setEditHotel] = useState();
     const [deletedItemId, setDeletedItemId] = useState();
     const [visibleHotels, setVisibleHotels] = useState(9);
-    const [noResults, setNoResults] = useState(false);  // Add state for no results message
+    const [noResults, setNoResults] = useState(false);  
 
-    // Function to delete a hotel based on its ID
+   
     const deleteHotel = useCallback((hotelId) => {
         setHotels(prevHotels => prevHotels.filter(h => h.properties.place_id !== hotelId));
     }, [setHotels]);
@@ -24,24 +24,22 @@ export const Mainlist = ({hotels, setHotels,locations, locationFilter, setLocati
         deleteHotel(hotelId);
     }, [deleteHotel]);
 
-    // Function to handle saving of edited hotel data
+  
     const handleSave = useCallback((updatedHotel) => {
         setHotels((prevHotels) =>
             prevHotels.map((h) =>
                 h.properties.place_id === updatedHotel.properties.place_id
-                    ? updatedHotel  // If place_id matches, replace the hotel with updated data
+                    ? updatedHotel  
                     : h
             )
         );
         setIsOpenEdit(false);  // Close the edit modal after saving
     }, [setHotels]);
 
-    // Function to load more hotels when "See More" button is clicked
     const loadMore = () => {
         setVisibleHotels(prevVisible => prevVisible + 9);
     };
 
-    // Check if there are any hotels after filtering and set noResults accordingly
     useEffect(() => {
         if (hotels?.length === 0) {
             setNoResults(true);
@@ -63,7 +61,6 @@ export const Mainlist = ({hotels, setHotels,locations, locationFilter, setLocati
             />
             <div>
                 {noResults ? (
-                    // Show this message if there are no hotels to display
                     <p className={styles.noResultsMessage}>No results found</p>
                 ) : (
                     <ul className={styles.main}>

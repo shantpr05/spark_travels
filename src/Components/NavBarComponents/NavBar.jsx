@@ -12,7 +12,7 @@ const Navbar = () => {
 
     const handleHomeClick = () => {
         navigate('/');  
-        window.location.reload();  // Refresh the page
+        window.location.reload(); 
     };
 
     const handleAddNewClick = () => {
@@ -21,7 +21,7 @@ const Navbar = () => {
 
     return (
         <nav className={styles.navbar}>
-            <div className={styles.logoContainer} onClick={handleLogoClick} style={{ cursor: 'pointer' }}>
+            <div className={styles.logoContainer} onClick={handleLogoClick} >
                 <img 
                     src={logo} alt="Logo" width="250" height="auto"  
                     className={styles.logo}
