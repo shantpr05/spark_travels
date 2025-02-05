@@ -3,15 +3,18 @@
     top: 0;
     left: 0;
     width: 100%;
-    box-shadow: 0 1px 2px -2px #14365D;
+    margin: auto;
     z-index: 1000;  
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    padding: 15px 5%;
-    background-color: #FFFFFF;
+    align-content: center;
+    padding: 15px 15%;
+    background-color: var(--background-color);
     border-bottom: 1px solid #ddd;
-    flex-wrap: nowrap;
+    color: var(--primary-color);
+    font-family: var(--p-familyFont), sans-serif;
+    font-size: var(--p-size);
 }
 
 .logo {
@@ -19,6 +22,8 @@
     height: auto;  
     object-fit: contain;  
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
 .searchForm {
@@ -32,16 +37,16 @@
 }
 
 .searchInput {
-    border: none;
+    border: var(--primary-color) 0.5px solid;
     padding: 8px 12px;
     width: 100%;
     max-width: 250px;
     height: 45px;
-    border-radius: 20px;
+    border-radius: 30px 0 0 30px;
     outline: none;
     background-color: #f4f4f4;
     font-size: 16px;
-    margin-right: 12px;
+   
 }
 
 .searchButton {
@@ -50,7 +55,7 @@
     color: white;
     border: none;
     padding: 8px 12px;
-    border-radius: var(--border-radius-buttons);
+    border-radius: 0 30px 30px 0;
     cursor: pointer;
     width: 110px;
     height: 45px;
@@ -59,6 +64,7 @@
 
 .navButtons {
     display: flex;
+    align-items: center;
     gap: 15px;
 }
 
@@ -67,9 +73,9 @@
     font-family: var(--addButton-familyFont);
     color: var(--background-color);
     padding: var(--padding-buttons);
-    border-radius: var(--border-radius-buttons);
+    border-radius: 30px ;
     cursor: pointer;
-    font-size: var(--addButton-familyFont);
+    font-size: var(--addButton-fontSize);
     width: 110px;
     height: 45px;
 }
@@ -165,5 +171,6 @@
     .navButtons button {
         height: 40px;
         font-size: 14px;
-    }
+
+    }   
 }
