@@ -46,8 +46,7 @@
   font-size: 20px;
   color: var(--primary-color);
   cursor: pointer;
-  transition: 0.3s;
-  
+  transition: 0.3s;  
 }
 
 .social-icons svg:hover {
