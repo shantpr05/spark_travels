@@ -30,7 +30,7 @@
 .form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
 }
 
 .inputGroup {
@@ -59,7 +59,7 @@
 }
 
 .submitButton {
-    padding: 12px 20px;
+    padding: 14px 20px;
     font-family: var(--addButton-familyFont);
     font-size: var(--addButton-fontSize);
     background-color: var(--primary-color);
@@ -70,15 +70,18 @@
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
-
-@media screen and (max-width: 768px) {
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
     .formContainer {
         max-width: 90%;
-        padding: 15px;
     }
 
     .form {
         gap: 15px;
+    }
+
+    .inputGroup label {
+        font-size: 16px;
     }
 
     .inputGroup input {
@@ -89,5 +92,53 @@
     .submitButton {
         padding: 14px;
         font-size: 18px;
+    }
+}
+
+/* Mobile-specific design */
+@media screen and (max-width: 768px) {
+    .formContainer {
+        max-width: 90%;
+        padding: 15px;
+        margin: 240px auto 30px;
+    }
+
+    .form {
+        gap: 10px;
+    }
+
+    .inputGroup label {
+        font-size: 14px;
+    }
+
+    .inputGroup input {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .submitButton {
+        padding: 12px;
+        font-size: 16px;
+        width: 100%;
+    }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 480px) {
+    .formContainer {
+        padding: 10px;
+    }
+
+    .form {
+        gap: 8px;
+    }
+
+    .inputGroup input {
+        font-size: 14px;
+    }
+
+    .submitButton {
+        font-size: 14px;
+        padding: 10px;
     }
 }

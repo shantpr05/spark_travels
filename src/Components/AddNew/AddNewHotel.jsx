@@ -53,7 +53,9 @@ const AddNewHotel = ({ addHotel }) => {
                     <h2>Register Hotel</h2>
                     <form id='save' onSubmit={handleSubmit} className={styles.form}>
                         <div className={styles.inputGroup}>
-                            <label htmlFor="name">Hotel Name</label>
+                            <label 
+                                htmlFor="name">Hotel Name <span style={{ color: "red" }}>*</span>
+                            </label>
                             <input
                                 type="text"
                                 id="name"
@@ -74,7 +76,9 @@ const AddNewHotel = ({ addHotel }) => {
                             />
                         </div>
                         <div className={styles.inputGroup}>
-                            <label htmlFor="city">City</label>
+                            <label 
+                                htmlFor="city">City <span style={{ color: "red" }}>*</span>
+                            </label>
                             <input
                                 type="text"
                                 id="city"
@@ -85,7 +89,9 @@ const AddNewHotel = ({ addHotel }) => {
                             />
                         </div>
                         <div className={styles.inputGroup}>
-                            <label htmlFor="phone">Phone</label>
+                            <label htmlFor="phone">Phone Number
+                                <span style={{ color: "red" }}>*</span>
+                            </label>
                             <input
                                 type="tel"
                                 id="phone"
@@ -93,6 +99,16 @@ const AddNewHotel = ({ addHotel }) => {
                                 value={newHotel.phone}
                                 onChange={handleChange}
                                 required
+                            />
+                        </div>
+                        <div className={styles.inputGroup}>
+                            <label htmlFor="website">Website</label>
+                            <input
+                                type="url"
+                                id="website"
+                                name="website"
+                                value={newHotel.website}
+                                onChange={handleChange}
                             />
                         </div>
 
