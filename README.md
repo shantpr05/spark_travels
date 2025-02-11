@@ -11,6 +11,14 @@ A hotel management web application that allows users to view, search, filter, ad
 - **Delete Hotel**: Users can delete hotels from the list.
 - **Edit Hotel**: Users can edit hotel details.
 
+
+## Contributions:
+Shanthi priya: Navbar, Search functionality, Home, AddNew Navigation and AddNew Hotel functionality, page responsiveness
+Ksenia: API Fetching, Hotel Listing, page styling
+Profira: Filter and Footer, Page responsiveness
+SwarnaLekha: figma design, Edit and Delete functionalities , page responsiveness
+
+
 ## Tech Stack
 
 - **Frontend**:
@@ -92,3 +100,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - The project uses [Geoapify Static Maps](https://www.geoapify.com/) for hotel location maps.
 - The icons used in the app are from [React Icons](https://react-icons.github.io/react-icons/).
+
+
