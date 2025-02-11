@@ -13,10 +13,10 @@ A hotel management web application that allows users to view, search, filter, ad
 
 
 ## Contributions:
-Shanthi priya: Navbar, Search functionality, Home, AddNew Navigation and AddNew Hotel functionality, page responsiveness
-Ksenia: API Fetching, Hotel Listing, page styling
-Profira: Filter and Footer, Page responsiveness
-SwarnaLekha: figma design, Edit and Delete functionalities , page responsiveness
+- **Shanthi priya**: Navbar, Search functionality, Home, AddNew Navigation and AddNew Hotel functionality, page responsiveness.
+- **Ksenia**: API Fetching, Hotel Listing, page styling.
+- **Profira**: Filter and Footer, Page responsiveness.
+- **SwarnaLekha**: figma design, Edit and Delete functionalities , page responsiveness.
 
 
 ## Tech Stack
