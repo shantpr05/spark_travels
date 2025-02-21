@@ -1,41 +1,53 @@
-import { useNavigate } from 'react-router-dom';  
-import Search from './Search'
-import styles from './NavBar.module.css';
-import logo from '../../assets/logo.png';
+import { useNavigate } from "react-router-dom";
+import Search from "./Search";
+import styles from "./NavBar.module.css";
+import logo from "../../assets/logo.png";
 
 const Navbar = () => {
-    const navigate = useNavigate();  
+  const navigate = useNavigate();
 
-    const handleLogoClick = () => {
-        navigate('/');  
-    };
+  // this can be simplified to
+  const handleNavigation = (path, reload = false) => {
+    navigate(path);
+    if (reload) window.location.reload();
+  };
 
-    const handleHomeClick = () => {
-        navigate('/');  
-        window.location.reload(); 
-    };
+  return (
+    <nav className={styles.navbar}>
+      <div
+        className={styles.logoContainer}
+        onClick={() => handleNavigation("/")}
+      >
+        <img
+          src={logo}
+          alt="Logo"
+          width="250"
+          height="auto"
+          className={styles.logo}
+        />
+      </div>
 
-    const handleAddNewClick = () => {
-        navigate('/add-new');  
-    };
+      <Search />
 
-    return (
-        <nav className={styles.navbar}>
-            <div className={styles.logoContainer} onClick={handleLogoClick} >
-                <img 
-                    src={logo} alt="Logo" width="250" height="auto"  
-                    className={styles.logo}
-                />
-            </div>
-            
-            <Search />
-            
-            <div className={styles.navButtons}>
-                <button className={styles.homeButton} onClick={handleHomeClick} aria-label="Go to Home Page">Home</button>
-                <button className={styles.addNewButton} onClick={handleAddNewClick}>Add New</button>
-            </div>
-        </nav>
-    );
+      <div className={styles.navButtons}>
+        <button
+          className={styles.homeButton}
+          // then this on click will be using this function
+          onClick={() => handleNavigation("/", true)}
+          aria-label="Go to Home Page"
+        >
+          Home
+        </button>
+        <button
+          className={styles.addNewButton}
+          // then this on click will be using this function
+          onClick={() => handleNavigation("/add-new")}
+        >
+          Add New
+        </button>
+      </div>
+    </nav>
+  );
 };
 
 export default Navbar;
