@@ -68,6 +68,7 @@ export const Mainlist = ({hotels, setHotels,locations, locationFilter, setLocati
                             <li key={item.properties.place_id} className={styles.item}>
                             <img 
                                 src={hotel}  
+                                // should set a proper alt text
                                 alt=""
                                 className={styles.hotelImage}
                                 loading="lazy"
