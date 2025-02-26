@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./EditHotel.module.css";
-import bg from "./bg.png";
+import bg from "../../assets/bg.png";
 
 export const EditHotel = ({ hotel, onSave, onCancel }) => {
   const [formData, setFormData] = useState({ ...hotel.properties });
