@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect } from "react";
 import styles from './Mainlist.module.css';
 import { DeleteItem } from "../DeleteItem/DeleteItem";
-import hotel from './imagemain.png';  
+import hotel from '../../assets/hotel.png';  
 import { EditHotel } from "../editItem/EditHotel";
 import { FaMapMarkerAlt, FaCity, FaPhoneAlt, FaInternetExplorer } from "react-icons/fa";
 import FilterComponent from '../FilterComponent/FilterComponent';

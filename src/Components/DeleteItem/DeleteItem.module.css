@@ -9,7 +9,7 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  background-image: url('deletebg.png');
+  background-image: url('../../assets/deletebg.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: auto;
